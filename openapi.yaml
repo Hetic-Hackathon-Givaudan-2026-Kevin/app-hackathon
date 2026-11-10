@@ -2,7 +2,7 @@ openapi: 3.0.3
 info:
   title: Givaudan Sales AI Challenge API
   description: API back-end FastAPI pour le support des ventes et l'analyse de formulations/ingrédients Givaudan.
-  version: "1.0.0"
+  version: '1.0.0'
 servers:
   - url: http://localhost:8000/api/v1
     description: Serveur de développement local (Docker)
@@ -37,7 +37,7 @@ paths:
               properties:
                 client_id:
                   type: string
-                  example: "CL-98421"
+                  example: 'CL-98421'
                 query:
                   type: string
                   example: "Recommander un profil olfactif boisé et frais pour un nouveau parfum d'intérieur."
@@ -51,12 +51,12 @@ paths:
                 properties:
                   recommendation_id:
                     type: string
-                    example: "REC-7732"
+                    example: 'REC-7732'
                   ingredients:
                     type: array
                     items:
                       type: string
-                    example: ["Cèdre de Virginie", "Bergamote d'Italie"]
+                    example: ['Cèdre de Virginie', "Bergamote d'Italie"]
                   confidence_score:
                     type: number
                     example: 0.94
@@ -76,10 +76,10 @@ paths:
                   properties:
                     id:
                       type: string
-                      example: "ING-012"
+                      example: 'ING-012'
                     name:
                       type: string
-                      example: "Mandarine Verte"
+                      example: 'Mandarine Verte'
                     category:
                       type: string
-                      example: "Agrume"
+                      example: 'Agrume'
