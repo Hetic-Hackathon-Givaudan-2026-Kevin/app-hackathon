@@ -246,7 +246,7 @@ async function OpportunityDetailContent({ params }: PageProps) {
               className="mt-5 flex h-11 w-full items-center justify-center gap-2 rounded-full bg-[#6542C2] px-5 text-sm font-medium text-white transition-all duration-300 ease-out hover:opacity-90"
             >
               <CalendarCheck size={16} />
-            <p className='text-xs'>  Préparer mon rendez-vous</p>
+              <p className="text-xs"> Préparer mon rendez-vous</p>
               <ArrowRight size={16} />
             </Link>
           </Card>
