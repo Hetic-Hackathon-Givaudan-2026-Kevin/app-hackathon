@@ -1,7 +1,5 @@
 import Navigation from '@/components/Navigation';
-import { commonFeatures } from '@/data/data';
 import { juniorNav } from './nav';
-import Link from 'next/link';
 import NavLink from '@/components/NavLink';
 
 export default function LayoutJunior({
