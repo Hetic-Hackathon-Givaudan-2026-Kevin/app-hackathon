@@ -58,9 +58,7 @@
     ],
     "notes": "Peu d'informations chiffrées.",
     "summary": "Piste identifiée sans éléments de prix. À reconfirmer lors d'un prochain échange.",
-    "next_actions": [
-      "Relancer sur le prix cible"
-    ],
+    "next_actions": ["Relancer sur le prix cible"],
     "date": "2026-11-02",
     "status": "realise"
   },
@@ -73,10 +71,7 @@
       "Quel taux de réduction visé ?",
       "Quelles contraintes de goût ?"
     ],
-    "answers": [
-      "Objectif évoqué mais non chiffré",
-      "Goût identique exigé"
-    ],
+    "answers": ["Objectif évoqué mais non chiffré", "Goût identique exigé"],
     "notes": "Le client n'a pas donné de chiffre précis.",
     "summary": "Intention de réduire le sucre confirmée, objectif chiffré à obtenir.",
     "next_actions": [
@@ -91,19 +86,11 @@
     "client_id": "5",
     "opportunity_id": "opp-5a",
     "objective": "Qualifier l'intérêt pour une gamme végétale.",
-    "questions": [
-      "Quel type de produit végétal ?",
-      "Quel horizon de temps ?"
-    ],
-    "answers": [
-      "Dessert végétal envisagé",
-      "Horizon non défini"
-    ],
+    "questions": ["Quel type de produit végétal ?", "Quel horizon de temps ?"],
+    "answers": ["Dessert végétal envisagé", "Horizon non défini"],
     "notes": "Simple réflexion à ce stade.",
     "summary": "Intérêt exploratoire, pas de projet défini.",
-    "next_actions": [
-      "Proposer un atelier de découverte"
-    ],
+    "next_actions": ["Proposer un atelier de découverte"],
     "date": "2026-10-30",
     "status": "realise"
   },
@@ -116,15 +103,10 @@
       "Quelle protéine est utilisée ?",
       "Quel seuil d'amertume est acceptable ?"
     ],
-    "answers": [
-      "Protéine de pois",
-      "Seuil non défini"
-    ],
+    "answers": ["Protéine de pois", "Seuil non défini"],
     "notes": "Retour technique fiable, contraintes à préciser.",
     "summary": "Besoin confirmé sur une boisson à base de protéine de pois.",
-    "next_actions": [
-      "Envoyer des échantillons de test"
-    ],
+    "next_actions": ["Envoyer des échantillons de test"],
     "date": "2026-10-28",
     "status": "realise"
   },
@@ -137,16 +119,10 @@
       "Quand le client souhaite-t-il décider ?",
       "Quel budget est prévu ?"
     ],
-    "answers": [
-      "Décision attendue en fin d'année",
-      "Budget à confirmer"
-    ],
+    "answers": ["Décision attendue en fin d'année", "Budget à confirmer"],
     "notes": "Négociation en cours, tension sur le délai.",
     "summary": "Décision attendue d'ici fin d'année. Budget non communiqué.",
-    "next_actions": [
-      "Confirmer le budget",
-      "Préparer la proposition finale"
-    ],
+    "next_actions": ["Confirmer le budget", "Préparer la proposition finale"],
     "date": "2026-10-18",
     "status": "realise"
   },

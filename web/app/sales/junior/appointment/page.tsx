@@ -1,5 +1,3 @@
-export default function Appointment(){
-    return(
-        <div></div>
-    )
+export default function Appointment() {
+  return <div></div>;
 }

@@ -1,5 +1,3 @@
-export default function WalletClient(){
-    return(
-        <div></div>
-    )
+export default function WalletClient() {
+  return <div></div>;
 }

@@ -1,6 +1,6 @@
-import Navigation from "@/components/Navigation";
-import { seniorNav } from "./nav";
-import Link from "next/link";
+import Navigation from '@/components/Navigation';
+import { seniorNav } from './nav';
+import Link from 'next/link';
 
 export default function LayoutSenior({
   children,
@@ -8,17 +8,21 @@ export default function LayoutSenior({
   children: React.ReactNode;
 }) {
   return (
-        <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col">
       <Navigation />
       <main className="flex-1 flex flex-col md:flex-row w-full max-w-[1600px] mx-auto p-3 gap-6 items-start">
         <aside className="w-full md:w-[280px] lg:w-[320px] shrink-0 rounded-2xl p-4 shadow-sm md:sticky md:top-6 md:h-[calc(100vh-7rem)] overflow-y-auto">
           <div className="mb-4">
-            {seniorNav.map((item) => 
-              <Link key={item.href} href={item.href} className="flex items-center bg-white">
+            {seniorNav.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="flex items-center bg-white"
+              >
                 <item.icon size={18} />
                 {item.label}
               </Link>
-            )}
+            ))}
           </div>
           {/* Insère ici ta liste déroulante ou tes éléments de navigation latérale */}
         </aside>
@@ -29,5 +33,5 @@ export default function LayoutSenior({
         </section>
       </main>
     </div>
-  )
+  );
 }

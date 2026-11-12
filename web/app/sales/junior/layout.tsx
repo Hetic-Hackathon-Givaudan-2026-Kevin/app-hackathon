@@ -15,7 +15,7 @@ export default function LayoutJunior({
       <main className="flex-1 flex flex-col md:flex-row w-full max-w-[1600px] mx-auto p-3 gap-6 items-start">
         <aside className="w-full md:w-[280px] lg:w-60 shrink-0 rounded-2xl md:sticky md:top-6 md:h-[calc(100vh-7rem)] overflow-y-auto">
           <div className=" space-y-3">
-           {juniorNav.map((item) => (
+            {juniorNav.map((item) => (
               <NavLink key={item.href} href={item.href} exact={item.exact}>
                 <item.icon size={18} strokeWidth={1.3} />
                 <span>{item.label}</span>

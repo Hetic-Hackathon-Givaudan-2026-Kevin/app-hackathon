@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useState } from 'react';
 import { Menu, Search, X } from 'lucide-react';
@@ -23,7 +23,6 @@ export default function Navigation() {
   return (
     <header className="w-full">
       <div className="flex justify-between items-center p-4 lg:p-3.5 max-w-7xl mx-auto">
-        
         {/* Section Gauche : Bouton Menu (mobile) + Logo */}
         <div className="flex items-center gap-3">
           <button
@@ -38,7 +37,7 @@ export default function Navigation() {
           <span className="font-bold tracking-wide">GIVAUDAN</span>
         </div>
 
-        <SearchBar/>
+        <SearchBar />
 
         {/* Section Droite : Bouton Déconnexion (desktop) */}
         <button
