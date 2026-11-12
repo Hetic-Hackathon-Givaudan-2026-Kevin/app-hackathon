@@ -5,7 +5,7 @@ type: Spike
 body:
   - type: markdown
     attributes:
-      value: 'Titre : la question. Exemple : « Un modèle local suffit-il ? ».'
+      value: "Titre : la question. Exemple : « Un modèle local suffit-il ? »."
   - type: input
     id: question
     attributes:

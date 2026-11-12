@@ -4,12 +4,12 @@ type: Bug
 body:
   - type: markdown
     attributes:
-      value: 'Titre : ce qui ne va pas. Exemple : « Le total de la facture affiche 0 € ».'
+      value: "Titre : ce qui ne va pas. Exemple : « Le total de la facture affiche 0 € »."
   - type: textarea
     id: etapes
     attributes:
       label: Étapes
-      value: '1. '
+      value: "1. "
     validations:
       required: true
   - type: input
