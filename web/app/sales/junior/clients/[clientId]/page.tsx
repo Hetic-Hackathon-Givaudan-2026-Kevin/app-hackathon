@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowRight, Building2 } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import BackButton from '@/components/BackButton';
 import { PriorityBadge, StatusBadge } from '@/components/Badges';
 import {

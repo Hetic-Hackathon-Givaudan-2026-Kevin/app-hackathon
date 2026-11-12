@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Menu, Search, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { commonFeatures } from '@/data/data'; // Sans l'extension .js en TS (ajuste le chemin si besoin)
 import SearchBar from './SearchBar';
 
