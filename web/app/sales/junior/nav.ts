@@ -11,6 +11,7 @@ export interface NavItem {
   label: string;
   icon: LucideIcon;
   exact?: boolean; // actif seulement sur l'URL exacte
+  alsoActiveOn?: string[]; // nouveau
 }
 
 export const juniorNav: NavItem[] = [
@@ -24,9 +25,10 @@ export const juniorNav: NavItem[] = [
     href: '/sales/junior/clients',
     label: 'Portefeuille clients',
     icon: Building2,
+    alsoActiveOn: ['/sales/junior/opportunites'],
   },
   {
-    href: '/sales/junior/rendez-vous',
+    href: '/sales/junior/appointment',
     label: 'Rendez-vous',
     icon: CalendarCheck,
   },

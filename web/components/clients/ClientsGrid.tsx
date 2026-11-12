@@ -90,7 +90,7 @@ export default function ClientsGrid({
           {visible.map((client) => (
             <li key={client.id}>
               <Link
-                href={`/sales/clients/${client.id}`}
+                href={`/sales/junior/clients/${client.id}`}
                 className="group flex h-full flex-col gap-4 rounded-3xl bg-white p-5 transition-colors duration-300 ease-out hover:bg-[#EFE9FC] sm:p-6"
               >
                 <div className="flex items-start gap-3">

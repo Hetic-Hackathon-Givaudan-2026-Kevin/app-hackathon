@@ -3,6 +3,7 @@
     "id": "q-opp-1a",
     "client_id": "1",
     "opportunity_id": "opp-1a",
+    "objective": "Comprendre les intentions du client concernant le développement d'une nouvelle gamme de boissons fonctionnelles et déterminer les contraintes associées.",
     "blocker": "Le périmètre de la gamme fonctionnelle n'est pas défini.",
     "questions": [
       {
@@ -26,6 +27,7 @@
     "id": "q-opp-1b",
     "client_id": "1",
     "opportunity_id": "opp-1b",
+    "objective": "Vérifier l'intérêt du client pour une extension de sa gamme aromatique et identifier les références à compléter.",
     "blocker": "L'intérêt pour une extension de gamme n'est qu'une hypothèse.",
     "questions": [
       {
@@ -49,6 +51,7 @@
     "id": "q-opp-2a",
     "client_id": "2",
     "opportunity_id": "opp-2a",
+    "objective": "Confirmer le besoin et le périmètre d'une formulation végétale.",
     "blocker": "Le périmètre de la formulation végétale n'est pas défini.",
     "questions": [
       {
@@ -72,6 +75,7 @@
     "id": "q-opp-2b",
     "client_id": "2",
     "opportunity_id": "opp-2b",
+    "objective": "Revenir sur le retour technique du projet précédent et savoir si le client souhaite traiter le point de texture.",
     "blocker": "Le point de texture remonté n'a pas été suivi d'une décision.",
     "questions": [
       {
@@ -95,6 +99,7 @@
     "id": "q-opp-2c",
     "client_id": "2",
     "opportunity_id": "opp-2c",
+    "objective": "Chiffrer la contrainte budgétaire et identifier les marges d'optimisation de la formulation.",
     "blocker": "Le niveau de contrainte budgétaire n'est pas précisé.",
     "questions": [
       {
@@ -118,6 +123,7 @@
     "id": "q-opp-3a",
     "client_id": "3",
     "opportunity_id": "opp-3a",
+    "objective": "Sonder l'intérêt du distributeur pour une nouvelle référence aromatique et comprendre son processus de référencement.",
     "blocker": "La demande du distributeur n'est pas confirmée.",
     "questions": [
       {
@@ -141,6 +147,7 @@
     "id": "q-opp-4a",
     "client_id": "4",
     "opportunity_id": "opp-4a",
+    "objective": "Obtenir un objectif chiffré de réduction du sucre et les contraintes de goût associées.",
     "blocker": "Aucun objectif chiffré de réduction du sucre.",
     "questions": [
       {
@@ -164,6 +171,7 @@
     "id": "q-opp-4b",
     "client_id": "4",
     "opportunity_id": "opp-4b",
+    "objective": "Cadrer l'étude demandée sur la réduction du sel : niveau visé et produits concernés.",
     "blocker": "Le niveau de réduction du sel attendu est inconnu.",
     "questions": [
       {
@@ -187,6 +195,7 @@
     "id": "q-opp-4c",
     "client_id": "4",
     "opportunity_id": "opp-4c",
+    "objective": "Vérifier si le client prévoit une édition saisonnière avant de proposer des saveurs.",
     "blocker": "Aucune demande du client, uniquement une tendance de marché.",
     "questions": [
       {
@@ -210,6 +219,7 @@
     "id": "q-opp-5a",
     "client_id": "5",
     "opportunity_id": "opp-5a",
+    "objective": "Comprendre ce qui motive l'intérêt pour le végétal et ce qu'il faudrait pour en faire un projet.",
     "blocker": "Intérêt exploratoire sans projet défini.",
     "questions": [
       {
@@ -233,6 +243,7 @@
     "id": "q-opp-6a",
     "client_id": "6",
     "opportunity_id": "opp-6a",
+    "objective": "Confirmer le besoin de masquage d'amertume et définir un critère de réussite mesurable.",
     "blocker": "Le seuil d'amertume acceptable n'est pas défini.",
     "questions": [
       {
@@ -256,6 +267,7 @@
     "id": "q-opp-6b",
     "client_id": "6",
     "opportunity_id": "opp-6b",
+    "objective": "Savoir si l'extension de la gamme de barres est un projet réel et quels profils de goût sont visés.",
     "blocker": "De nouveaux profils de goût ont été évoqués, sans projet.",
     "questions": [
       {
@@ -279,6 +291,7 @@
     "id": "q-opp-8a",
     "client_id": "8",
     "opportunity_id": "opp-8a",
+    "objective": "Fixer l'objectif de durée du parfum et les produits concernés.",
     "blocker": "L'objectif de durée du parfum n'est pas précisé.",
     "questions": [
       {
@@ -302,6 +315,7 @@
     "id": "q-opp-8b",
     "client_id": "8",
     "opportunity_id": "opp-8b",
+    "objective": "Vérifier si les ingrédients naturels font partie de la stratégie du client et à quel niveau d'exigence.",
     "blocker": "L'intérêt du client pour les ingrédients naturels n'est pas exprimé.",
     "questions": [
       {
@@ -325,6 +339,7 @@
     "id": "q-opp-9a",
     "client_id": "9",
     "opportunity_id": "opp-9a",
+    "objective": "Confirmer ou écarter l'intérêt évoqué pour de nouvelles saveurs sans sucre.",
     "blocker": "Un intérêt mentionné en passant, jamais confirmé.",
     "questions": [
       {
@@ -348,6 +363,7 @@
     "id": "q-opp-11a",
     "client_id": "11",
     "opportunity_id": "opp-11a",
+    "objective": "Clarifier le calendrier, le budget et les points restant à valider pour conclure la négociation.",
     "blocker": "Le calendrier et le budget de la négociation sont flous.",
     "questions": [
       {
@@ -371,6 +387,7 @@
     "id": "q-opp-11b",
     "client_id": "11",
     "opportunity_id": "opp-11b",
+    "objective": "Savoir si une déclinaison en produits de soin est envisagée et à quel moment en parler.",
     "blocker": "Une déclinaison en soin a été évoquée, sans projet.",
     "questions": [
       {
@@ -394,6 +411,7 @@
     "id": "q-opp-12a",
     "client_id": "12",
     "opportunity_id": "opp-12a",
+    "objective": "Identifier les exigences de certification d'origine naturelle et les projets concernés.",
     "blocker": "Les exigences de certification du client sont inconnues.",
     "questions": [
       {
@@ -417,6 +435,7 @@
     "id": "q-client-7",
     "client_id": "7",
     "opportunity_id": null,
+    "objective": "Explorer de nouveaux besoins sur un compte pour lequel aucune opportunité n'est identifiée.",
     "blocker": "Aucun signal d'évolution du besoin, le compte est calme.",
     "questions": [
       {
@@ -440,6 +459,7 @@
     "id": "q-client-10",
     "client_id": "10",
     "opportunity_id": null,
+    "objective": "Explorer de nouveaux besoins sur un compte pour lequel aucune opportunité n'est identifiée.",
     "blocker": "Aucun signal d'évolution du besoin, le compte est calme.",
     "questions": [
       {

@@ -1,0 +1,154 @@
+[
+  {
+    "opportunity_id": "opp-1a",
+    "reasoning": "Le client a exprimé un intérêt pour une nouvelle catégorie de boissons (fait, issu d'un échange commercial). Cet intérêt s'inscrit dans son activité actuelle de boissons, ce qui rend plausible un besoin de développement aromatique. Le périmètre exact de la gamme n'est pas encore connu.",
+    "to_verify": [
+      "Le bénéfice fonctionnel visé par la gamme",
+      "Les contraintes de formulation et le budget",
+      "Le calendrier de lancement"
+    ]
+  },
+  {
+    "opportunity_id": "opp-1b",
+    "reasoning": "Un projet existant et l'évolution du portefeuille du client laissent penser qu'une extension de la gamme aromatique est possible. Il s'agit d'une interprétation de l'IA : le client n'a pas formulé cette demande.",
+    "to_verify": [
+      "L'intérêt réel du client pour une extension",
+      "Les références de la gamme à compléter"
+    ]
+  },
+  {
+    "opportunity_id": "opp-2a",
+    "reasoning": "Le client a posé une question sur les alternatives végétales (fait, demande du client). Une formulation végétale demande un travail spécifique sur le goût et la texture, ce qui relève de l'expertise de Givaudan. Le périmètre du besoin n'est pas défini.",
+    "to_verify": [
+      "Les produits concernés en priorité",
+      "Les contraintes de goût et de texture"
+    ]
+  },
+  {
+    "opportunity_id": "opp-2b",
+    "reasoning": "Un retour technique sur un projet précédent signale un point d'amélioration de la texture (fait). Y revenir peut ouvrir un nouveau projet, mais le client ne l'a pas encore demandé.",
+    "to_verify": [
+      "La gravité du problème de texture pour le client",
+      "Sa volonté de le traiter dans un nouveau projet"
+    ]
+  },
+  {
+    "opportunity_id": "opp-2c",
+    "reasoning": "Le client a communiqué une contrainte budgétaire (fait). Une revue de la formulation existante peut permettre d'ajuster le coût sans changer le produit. Le niveau de contrainte n'est pas chiffré.",
+    "to_verify": [
+      "Le coût cible visé",
+      "Les éléments de la formulation qui peuvent évoluer"
+    ]
+  },
+  {
+    "opportunity_id": "opp-3a",
+    "reasoning": "Une tendance de consommation laisse entrevoir une demande potentielle pour une nouvelle référence (hypothèse issue de la veille de marché). Aucune demande du distributeur ne la confirme à ce stade.",
+    "to_verify": [
+      "L'intérêt du distributeur pour cette tendance",
+      "Le processus et le calendrier de référencement"
+    ]
+  },
+  {
+    "opportunity_id": "opp-4a",
+    "reasoning": "L'objectif de réduction du sucre a été évoqué lors du dernier échange (fait, compte rendu). Le client suit déjà plusieurs projets de boissons, où le goût doit être préservé malgré la réduction. L'objectif n'est pas chiffré.",
+    "to_verify": [
+      "Le taux de réduction visé et les références concernées",
+      "L'écart de goût acceptable",
+      "L'échéance liée à ce projet"
+    ]
+  },
+  {
+    "opportunity_id": "opp-4b",
+    "reasoning": "Le client a demandé une étude sur la réduction du sel (fait, demande du client). Il a déjà un projet de snacks en cours, ce qui rend la demande cohérente avec son activité. Le niveau de réduction attendu est inconnu.",
+    "to_verify": [
+      "Le niveau de réduction du sel attendu",
+      "Les produits concernés en premier"
+    ]
+  },
+  {
+    "opportunity_id": "opp-4c",
+    "reasoning": "Les saveurs saisonnières suscitent un intérêt sur le marché (hypothèse issue de la veille). Le client n'a rien demandé à ce sujet : l'IA suggère simplement d'en parler.",
+    "to_verify": [
+      "L'existence d'éditions saisonnières dans ses plans",
+      "Le calendrier de validation d'une saveur"
+    ]
+  },
+  {
+    "opportunity_id": "opp-5a",
+    "reasoning": "Le client a posé une question sur les alternatives végétales (fait, demande du client). Comme il travaille sur des produits laitiers, cette piste a du sens pour lui. Ce n'est encore qu'une réflexion, sans projet défini.",
+    "to_verify": [
+      "La motivation derrière la question",
+      "Le type de produit concerné",
+      "Ce qui permettrait de lancer un projet"
+    ]
+  },
+  {
+    "opportunity_id": "opp-6a",
+    "reasoning": "Un retour technique récent signale une amertume à corriger sur une boisson (fait, projet en cours). Le masquage de goût fait partie des savoir-faire aromatiques courants. Les contraintes techniques de la formulation restent à préciser.",
+    "to_verify": [
+      "Le seuil d'amertume acceptable",
+      "Les contraintes de formulation",
+      "Le calendrier de validation"
+    ]
+  },
+  {
+    "opportunity_id": "opp-6b",
+    "reasoning": "De nouveaux profils de goût ont été évoqués lors du suivi d'un projet (hypothèse : le client n'a pas exprimé de demande ferme). Ils pourraient justifier une extension de la gamme de barres.",
+    "to_verify": [
+      "Les profils de goût souhaités",
+      "La présence de cette extension dans sa feuille de route"
+    ]
+  },
+  {
+    "opportunity_id": "opp-8a",
+    "reasoning": "Le client a demandé une performance accrue du parfum sur un projet en cours (fait, demande du client). Cela peut s'étendre à d'autres produits de soin de la gamme. L'objectif de durée n'est pas précisé.",
+    "to_verify": [
+      "L'objectif de durée du parfum",
+      "Les produits concernés",
+      "La méthode de mesure de la performance"
+    ]
+  },
+  {
+    "opportunity_id": "opp-8b",
+    "reasoning": "Le marché montre un intérêt général pour les ingrédients d'origine naturelle (hypothèse issue de la veille). Le client ne s'est pas exprimé sur ce sujet : l'IA propose de vérifier si cela rejoint sa stratégie.",
+    "to_verify": [
+      "L'intérêt du client pour le naturel",
+      "Le niveau d'exigence ou les certifications attendus"
+    ]
+  },
+  {
+    "opportunity_id": "opp-9a",
+    "reasoning": "Le client a mentionné en passant un intérêt pour des saveurs inédites (hypothèse : signal faible, non confirmé). Il suit déjà des projets de boissons, ce qui rend le sujet plausible.",
+    "to_verify": [
+      "La réalité du besoin pour une boisson sans sucre",
+      "Les saveurs recherchées",
+      "Le calendrier éventuel"
+    ]
+  },
+  {
+    "opportunity_id": "opp-11a",
+    "reasoning": "Une négociation est en cours sur une nouvelle fragrance (fait, compte rendu). C'est le signal le plus avancé du compte : il justifie de clarifier le calendrier et le budget avant la proposition finale.",
+    "to_verify": [
+      "Le budget prévu",
+      "Le calendrier de décision et de lancement",
+      "Les points restant à valider côté client"
+    ]
+  },
+  {
+    "opportunity_id": "opp-11b",
+    "reasoning": "Le client a évoqué l'idée de décliner un parfum en produits de soin (hypothèse : intérêt évoqué sans projet). Cette piste dépend de l'issue de la négociation en cours.",
+    "to_verify": [
+      "Les produits de soin envisagés",
+      "Le bon moment pour aborder le sujet"
+    ]
+  },
+  {
+    "opportunity_id": "opp-12a",
+    "reasoning": "Le positionnement végétal de la marque et ses projets en cours laissent penser qu'elle pourrait rechercher des parfums certifiés d'origine naturelle (hypothèse issue de l'historique). Aucune demande explicite n'a été reçue.",
+    "to_verify": [
+      "Les certifications ou labels exigés",
+      "Les projets concernés",
+      "Le décideur côté marque"
+    ]
+  }
+]
