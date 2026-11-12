@@ -16,3 +16,30 @@ body {
   background: var(--background);
   color: var(--foreground);
 }
+
+/* Cartes à dégradé diffus (écrans Rendez-vous, Bonnes pratiques, Copilot) */
+.glow-green {
+  background:
+    radial-gradient(90% 70% at 50% 105%, #1f9a3c 0%, transparent 70%),
+    linear-gradient(180deg, #f4b98d 0%, #a9d06a 34%, #4fb24c 68%, #2f9e44 100%);
+}
+
+.glow-orange {
+  background:
+    radial-gradient(
+      58% 62% at 50% 52%,
+      #ff7417 0%,
+      #fb9a3f 46%,
+      transparent 78%
+    ),
+    linear-gradient(135deg, #bcd0e4 0%, #f2c4ad 55%, #c7d5e8 100%);
+}
+
+.glow-pink {
+  background: radial-gradient(
+    75% 75% at 50% 58%,
+    #ff3f80 0%,
+    #ff86ae 48%,
+    #ffd5e2 100%
+  );
+}

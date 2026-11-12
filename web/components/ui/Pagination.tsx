@@ -50,7 +50,7 @@ export default function Pagination({
               aria-current={number === page ? 'page' : undefined}
               className={`${buttonBase} ${
                 number === page
-                  ? 'bg-[#6542C2] text-white'
+                  ? 'bg-[#172033] text-white'
                   : 'bg-[#F6F7F9] text-[#172033] hover:bg-[#EFE9FC]'
               }`}
             >

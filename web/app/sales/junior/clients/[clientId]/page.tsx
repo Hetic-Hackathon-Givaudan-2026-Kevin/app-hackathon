@@ -5,6 +5,13 @@ import { ArrowRight, Building2 } from 'lucide-react';
 import BackButton from '@/components/BackButton';
 import { PriorityBadge, StatusBadge } from '@/components/Badges';
 import {
+  DotNumber,
+  primaryButton,
+  sectionTitle,
+  softCard,
+  softTile,
+} from '@/components/ui/Soft';
+import {
   formatDate,
   getClientDetail,
   getClientIds,
@@ -25,12 +32,8 @@ function Card({
   className?: string;
 }) {
   return (
-    <section className={`rounded-3xl bg-white p-5 sm:p-6 lg:p-7 ${className}`}>
-      {title && (
-        <h2 className="mb-4 text-xl font-semibold tracking-tight text-[#172033] sm:mb-5 sm:text-2xl">
-          {title}
-        </h2>
-      )}
+    <section className={`${softCard} ${className}`}>
+      {title && <h2 className={`${sectionTitle} mb-4 sm:mb-5`}>{title}</h2>}
       {children}
     </section>
   );
@@ -38,7 +41,7 @@ function Card({
 
 function Fact({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-2xl bg-[#F6F7F9] p-4">
+    <div className={`${softTile} p-4`}>
       <dt className="text-xs text-[#667085]">{label}</dt>
       <dd className="mt-1 text-sm font-medium text-[#172033]">{value}</dd>
     </div>
@@ -55,14 +58,16 @@ function Stat({
   className: string;
 }) {
   return (
-    <div className="flex items-center gap-4 rounded-3xl bg-white p-5 sm:flex-col sm:items-start sm:gap-3 sm:p-6">
+    <div
+      className={`${softCard} flex items-center gap-4 sm:flex-col sm:items-start sm:gap-3`}
+    >
       <span
         className={`rounded-full px-3 py-1 text-xs font-medium whitespace-nowrap ${className}`}
       >
         {label}
       </span>
-      <p className="ml-auto text-4xl font-semibold tracking-tight text-[#172033] sm:ml-0 sm:text-5xl">
-        {value}
+      <p className="ml-auto sm:ml-0">
+        <DotNumber className="text-5xl sm:text-6xl">{value}</DotNumber>
       </p>
     </div>
   );
@@ -129,7 +134,7 @@ async function ClientDetailContent({ params }: PageProps) {
       <Card>
         <div className="flex items-center gap-3 sm:gap-4">
           <div>
-            <h1 className="text-2xl font-semibold tracking-tight text-[#172033] sm:text-3xl lg:text-4xl">
+            <h1 className="text-3xl font-normal tracking-tight text-[#172033] sm:text-4xl lg:text-5xl">
               {client.name}
             </h1>
             <p className="text-sm text-[#667085]">
@@ -167,13 +172,10 @@ async function ClientDetailContent({ params }: PageProps) {
       </div>
 
       {/* C. Synthèse intelligente du client */}
-      <Card
-        title="Ce qu'il faut savoir sur ce client"
-        className="bg-linear-to-br from-white via-white/50 to-transparent"
-      >
+      <Card title="Ce qu'il faut savoir sur ce client">
         {summary ? (
           <div className="space-y-4">
-            <div className="rounded-2xl bg-white/70 p-4 sm:p-5">
+            <div className="rounded-[22px] bg-white/90 p-4 shadow-[0_1px_2px_rgba(23,32,51,0.05)] sm:p-5">
               <h3 className="text-sm font-semibold text-[#172033]">
                 Situation commerciale
               </h3>
@@ -183,7 +185,7 @@ async function ClientDetailContent({ params }: PageProps) {
               {summaryGroups.map((group) => (
                 <div
                   key={group.label}
-                  className="rounded-2xl bg-white/70 p-4 sm:p-5"
+                  className="rounded-[22px] bg-white/90 p-4 shadow-[0_1px_2px_rgba(23,32,51,0.05)] sm:p-5"
                 >
                   <h3 className="text-sm font-semibold text-[#172033]">
                     {group.label}
@@ -212,7 +214,7 @@ async function ClientDetailContent({ params }: PageProps) {
             {opportunities.map((opportunity) => (
               <article
                 key={opportunity.id}
-                className="flex flex-col gap-3 rounded-2xl bg-[#F6F7F9] p-4 sm:p-5"
+                className="flex flex-col gap-3 rounded-[22px] bg-white/90 p-4 shadow-[0_1px_2px_rgba(23,32,51,0.05)] sm:p-5"
               >
                 <div className="flex flex-wrap gap-2">
                   <StatusBadge status={opportunity.status} />
@@ -246,7 +248,7 @@ async function ClientDetailContent({ params }: PageProps) {
                 </dl>
                 <Link
                   href={`/sales/junior/opportunites/${opportunity.id}`}
-                  className="mt-auto flex h-11 w-full items-center justify-center gap-2 rounded-full bg-[#6542C2] px-5 text-sm font-medium text-white transition-all duration-300 ease-out hover:opacity-90 sm:w-fit"
+                  className={`${primaryButton} mt-auto w-full sm:w-fit`}
                 >
                   Analyser l&apos;opportunité
                   <ArrowRight size={16} />
@@ -270,7 +272,7 @@ async function ClientDetailContent({ params }: PageProps) {
                 key={`${item.date}-${item.event}`}
                 className="relative flex flex-col gap-1 sm:flex-row sm:gap-4"
               >
-                <span className="absolute top-1.5 -left-[25px] size-2 rounded-full bg-[#6542C2]" />
+                <span className="absolute top-1.5 -left-[25px] size-2 rounded-full bg-[#172033]" />
                 <span className="shrink-0 text-sm font-medium text-[#172033] sm:w-24">
                   {formatDate(item.date)}
                 </span>

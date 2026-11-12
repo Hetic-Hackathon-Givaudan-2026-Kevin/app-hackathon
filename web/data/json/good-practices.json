@@ -1,0 +1,50 @@
+[
+  {
+    "id": "bp-1",
+    "moment": "apres",
+    "topic": "Contraintes budgétaires",
+    "title": "Confirmer le budget et le calendrier industriel avant de solliciter les équipes techniques",
+    "advice": "Pour un développement spécifique, confirmer le budget et le calendrier industriel avant de solliciter les équipes techniques.",
+    "why": "Le type de réponse (catalogue ou développement spécifique) dépend du potentiel commercial et du budget."
+  },
+  {
+    "id": "bp-2",
+    "moment": "pendant",
+    "topic": "Critères de décision",
+    "title": "Demander qui décide, et sur quels critères",
+    "advice": "Avant de conclure, demander qui prendra la décision finale et ce qui fera la différence entre deux propositions.",
+    "why": "Une proposition peut répondre au brief et rester à côté des critères de décision du client."
+  },
+  {
+    "id": "bp-3",
+    "moment": "pendant",
+    "topic": "Besoin réel",
+    "title": "Reformuler le besoin avant de quitter le rendez-vous",
+    "advice": "Résumer en une phrase ce que vous avez compris et laisser le client corriger.",
+    "why": "Le besoin réel est parfois différent du brief initial. La reformulation le fait apparaître."
+  },
+  {
+    "id": "bp-4",
+    "moment": "pendant",
+    "topic": "Objectifs du client",
+    "title": "Répartir les questions dans l'échange",
+    "advice": "Poser les trois questions au fil de la conversation, pas à la suite.",
+    "why": "Des questions enchaînées donnent l'impression d'une checklist récitée et ferment la discussion."
+  },
+  {
+    "id": "bp-5",
+    "moment": "avant",
+    "topic": "Calendrier",
+    "title": "Relire « Ce qui manque » juste avant d'entrer",
+    "advice": "Relire la colonne « Ce qui manque » de la préparation, puis fermer l'outil avant le rendez-vous.",
+    "why": "Avoir deux ou trois informations à obtenir en tête suffit. Aucun écran n'est nécessaire devant le client."
+  },
+  {
+    "id": "bp-6",
+    "moment": "apres",
+    "topic": "Besoin réel",
+    "title": "Saisir les notes juste après le rendez-vous",
+    "advice": "Cocher les informations obtenues et noter les points clés dans l'heure qui suit.",
+    "why": "Les détails utiles aux équipes internes s'oublient vite. Une seule saisie évite de la refaire ailleurs."
+  }
+]
