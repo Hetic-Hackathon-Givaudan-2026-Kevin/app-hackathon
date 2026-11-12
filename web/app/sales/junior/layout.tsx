@@ -1,5 +1,8 @@
 import Navigation from '@/components/Navigation';
 import { commonFeatures } from '@/data/data';
+import { juniorNav } from './nav';
+import Link from 'next/link';
+import NavLink from '@/components/NavLink';
 
 export default function LayoutJunior({
   children,
@@ -10,13 +13,13 @@ export default function LayoutJunior({
     <div className="min-h-screen flex flex-col">
       <Navigation />
       <main className="flex-1 flex flex-col md:flex-row w-full max-w-[1600px] mx-auto p-3 gap-6 items-start">
-        <aside className="w-full md:w-[280px] lg:w-[320px] shrink-0 rounded-2xl p-4 shadow-sm md:sticky md:top-6 md:h-[calc(100vh-7rem)] overflow-y-auto">
-          <div className="mb-4">
-            {commonFeatures.map((c) => (
-              <div className="" key={c.id}>
-                <div></div>
-                <p className="text-sm">{c.name}</p>
-              </div>
+        <aside className="w-full md:w-[280px] lg:w-60 shrink-0 rounded-2xl md:sticky md:top-6 md:h-[calc(100vh-7rem)] overflow-y-auto">
+          <div className=" space-y-3">
+            {juniorNav.map((item) => (
+              <NavLink key={item.href} href={item.href} exact={item.exact}>
+                <item.icon size={18} strokeWidth={1.3} />
+                <span>{item.label}</span>
+              </NavLink>
             ))}
           </div>
           {/* Insère ici ta liste déroulante ou tes éléments de navigation latérale */}

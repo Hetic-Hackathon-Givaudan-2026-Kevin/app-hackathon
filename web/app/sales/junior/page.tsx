@@ -1,9 +1,8 @@
-import Navigation from '@/components/Navigation';
+import PortfolioView from '@/components/portfolio/PortfolioView';
+import { getPortfolio } from '@/lib/portfolio';
 
 export default function IndexJunior() {
-  return (
-    <div>
-      <main></main>
-    </div>
-  );
+  const { clients, kpis } = getPortfolio();
+
+  return <PortfolioView clients={clients} kpis={kpis} />;
 }
