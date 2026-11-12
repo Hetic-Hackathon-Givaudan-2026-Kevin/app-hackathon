@@ -43,7 +43,7 @@ export default function ClientsGrid({
     <div className="flex flex-col gap-4 sm:gap-5">
       <section
         ref={topRef}
-        className="scroll-mt-4 rounded-3xl p-5 sm:p-6 lg:p-7"
+        className="scroll-mt-4 rounded-3xl"
       >
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>

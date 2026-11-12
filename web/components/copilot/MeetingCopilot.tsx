@@ -1,8 +1,9 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { Building2, Check, FileText, Target } from 'lucide-react';
+import ReportModal from '@/components/copilot/ReportModal';
 import type { CopilotContext } from '@/lib/copilot';
 import {
   buildReport,
@@ -56,15 +57,7 @@ export default function MeetingCopilot({
   const [checked, setChecked] = useState<ChecklistItem[]>([]);
   const [notes, setNotes] = useState('');
   const [report, setReport] = useState<ReportSection[] | null>(null);
-  const reportRef = useRef<HTMLElement>(null);
-
-  // Fait défiler jusqu'au compte rendu quand il vient d'être généré
-  const hasReport = report !== null;
-  useEffect(() => {
-    if (hasReport) {
-      reportRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }, [hasReport]);
+  const [isReportOpen, setIsReportOpen] = useState(false);
 
   function toggle(item: ChecklistItem) {
     setChecked((current) =>
@@ -75,6 +68,7 @@ export default function MeetingCopilot({
   }
 
   function generate() {
+    setIsReportOpen(true);
     setReport(
       buildReport({
         clientName: client.name,
@@ -289,66 +283,48 @@ export default function MeetingCopilot({
           </Card>
 
           {/* F. Génération du compte rendu */}
-          <button
-            type="button"
-            onClick={generate}
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[#6542C2] px-5 text-sm font-medium text-white transition-all duration-300 ease-out hover:opacity-90"
-          >
-            <FileText size={16} />
-            {report ? 'Régénérer le compte rendu' : 'Générer le compte rendu'}
-          </button>
+          <div className="flex flex-col gap-2">
+            <button
+              type="button"
+              onClick={generate}
+              className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-[#6542C2] px-5 text-sm font-medium text-white transition-all duration-300 ease-out hover:opacity-90"
+            >
+              <FileText size={16} />
+              {report ? 'Régénérer le compte rendu' : 'Générer le compte rendu'}
+            </button>
+            {report && (
+              <button
+                type="button"
+                onClick={() => setIsReportOpen(true)}
+                className="flex h-12 w-full items-center justify-center rounded-full bg-white px-5 text-sm font-medium text-[#6542C2] transition-colors duration-300 hover:bg-[#EFE9FC]"
+              >
+                Rouvrir le compte rendu
+              </button>
+            )}
+          </div>
         </div>
       </div>
 
       {report && (
-        <section
-          ref={reportRef}
-          aria-label="Compte rendu"
-          className="scroll-mt-4 rounded-3xl bg-white p-5 sm:p-6 lg:p-7"
-        >
-          <h2 className="text-xl font-semibold tracking-tight text-[#172033] sm:text-2xl">
-            Compte rendu du rendez-vous
-          </h2>
-          <p className="mt-1 mb-4 text-sm text-[#667085] sm:mb-5">
-            Brouillon généré à partir du contexte, des réponses et des notes.
-            Modifiez-le avant de l&apos;utiliser. Régénérer remplace vos
-            modifications.
-          </p>
-          <div className="grid gap-3 sm:gap-4 lg:grid-cols-2">
-            {report.map((section, index) => (
-              <label
-                key={section.id}
-                className={`block rounded-2xl bg-[#F6F7F9] p-4 sm:p-5 ${
-                  section.id === 'resume' ? 'lg:col-span-2' : ''
-                }`}
-              >
-                <span className="text-sm font-semibold text-[#172033]">
-                  {index + 1}. {section.title}
-                </span>
-                <textarea
-                  value={section.text}
-                  rows={Math.max(
-                    3,
-                    section.text.split('\n').length +
-                      Math.floor(section.text.length / 90),
-                  )}
-                  onChange={(event) =>
-                    setReport((current) =>
-                      current
-                        ? current.map((item) =>
-                            item.id === section.id
-                              ? { ...item, text: event.target.value }
-                              : item,
-                          )
-                        : current,
-                    )
-                  }
-                  className={`${fieldClass} mt-2 bg-white`}
-                />
-              </label>
-            ))}
-          </div>
-        </section>
+        <ReportModal
+          open={isReportOpen}
+          onClose={() => setIsReportOpen(false)}
+          sections={report}
+          onSectionChange={(id, text) =>
+            setReport((current) =>
+              current
+                ? current.map((item) =>
+                    item.id === id ? { ...item, text } : item,
+                  )
+                : current,
+            )
+          }
+          meta={{
+            clientName: client.name,
+            opportunityTitle: opportunity.title,
+            objective: plannedMeeting?.objective ?? objective,
+          }}
+        />
       )}
     </div>
   );
