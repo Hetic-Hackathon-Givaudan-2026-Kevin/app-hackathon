@@ -1,0 +1,462 @@
+[
+  {
+    "id": "q-opp-1a",
+    "client_id": "1",
+    "opportunity_id": "opp-1a",
+    "blocker": "Le périmètre de la gamme fonctionnelle n'est pas défini.",
+    "questions": [
+      {
+        "question": "Quel bénéfice fonctionnel souhaitez-vous mettre en avant pour cette nouvelle gamme ?",
+        "why": "Le bénéfice visé oriente le choix des arômes et des ingrédients.",
+        "info_sought": "Besoin réel"
+      },
+      {
+        "question": "Avez-vous déjà fixé des contraintes de formulation, de goût ou de budget ?",
+        "why": "Identifier ce qui limite les options avant de proposer quoi que ce soit.",
+        "info_sought": "Contraintes techniques"
+      },
+      {
+        "question": "À quelle échéance souhaitez-vous mettre cette gamme sur le marché ?",
+        "why": "Évaluer l'urgence et la place du projet dans les priorités du client.",
+        "info_sought": "Calendrier"
+      }
+    ]
+  },
+  {
+    "id": "q-opp-1b",
+    "client_id": "1",
+    "opportunity_id": "opp-1b",
+    "blocker": "L'intérêt pour une extension de gamme n'est qu'une hypothèse.",
+    "questions": [
+      {
+        "question": "Comment voyez-vous évoluer votre gamme aromatique dans les prochains mois ?",
+        "why": "Vérifier que l'extension correspond à une intention réelle du client.",
+        "info_sought": "Objectifs du client"
+      },
+      {
+        "question": "Parmi vos références actuelles, lesquelles fonctionnent le mieux et lesquelles vous semblent à compléter ?",
+        "why": "Repérer le manque réel de la gamme.",
+        "info_sought": "Besoin réel"
+      },
+      {
+        "question": "Qui participerait à la décision d'élargir la gamme chez vous ?",
+        "why": "Identifier les décideurs à associer dès le départ.",
+        "info_sought": "Critères de décision"
+      }
+    ]
+  },
+  {
+    "id": "q-opp-2a",
+    "client_id": "2",
+    "opportunity_id": "opp-2a",
+    "blocker": "Le périmètre de la formulation végétale n'est pas défini.",
+    "questions": [
+      {
+        "question": "Quels produits souhaiteriez-vous lancer ou convertir en version végétale en premier ?",
+        "why": "Délimiter le périmètre du projet.",
+        "info_sought": "Besoin réel"
+      },
+      {
+        "question": "Quelles qualités du produit actuel ne doivent surtout pas changer (goût, texture, étiquetage) ?",
+        "why": "Connaître les lignes rouges de la formulation.",
+        "info_sought": "Contraintes techniques"
+      },
+      {
+        "question": "Avez-vous déjà testé des alternatives végétales, et qu'est-ce qui vous a freiné ?",
+        "why": "Comprendre ce qui a bloqué jusqu'ici.",
+        "info_sought": "Besoin réel"
+      }
+    ]
+  },
+  {
+    "id": "q-opp-2b",
+    "client_id": "2",
+    "opportunity_id": "opp-2b",
+    "blocker": "Le point de texture remonté n'a pas été suivi d'une décision.",
+    "questions": [
+      {
+        "question": "Sur le dernier projet, quel écart de texture vous a le plus gêné ?",
+        "why": "Préciser le problème réel derrière le retour technique.",
+        "info_sought": "Besoin réel"
+      },
+      {
+        "question": "Ce point a-t-il eu un effet sur vos tests consommateurs ou sur votre production ?",
+        "why": "Mesurer l'importance du sujet pour le client.",
+        "info_sought": "Contraintes techniques"
+      },
+      {
+        "question": "Souhaitez-vous le traiter dans un nouveau projet ou dans une évolution du produit actuel ?",
+        "why": "Définir le cadre dans lequel l'opportunité pourrait avancer.",
+        "info_sought": "Objectifs du client"
+      }
+    ]
+  },
+  {
+    "id": "q-opp-2c",
+    "client_id": "2",
+    "opportunity_id": "opp-2c",
+    "blocker": "Le niveau de contrainte budgétaire n'est pas précisé.",
+    "questions": [
+      {
+        "question": "Quel coût cible visez-vous pour cette formulation ?",
+        "why": "Chiffrer l'objectif d'optimisation.",
+        "info_sought": "Contraintes budgétaires"
+      },
+      {
+        "question": "Quels éléments de la formulation actuelle pouvez-vous faire évoluer, et lesquels sont intouchables ?",
+        "why": "Délimiter la marge de manœuvre technique.",
+        "info_sought": "Contraintes techniques"
+      },
+      {
+        "question": "Si un gain de coût touche au goût ou à la texture, quel arbitrage préférez-vous ?",
+        "why": "Connaître la priorité du client entre coût et qualité.",
+        "info_sought": "Critères de décision"
+      }
+    ]
+  },
+  {
+    "id": "q-opp-3a",
+    "client_id": "3",
+    "opportunity_id": "opp-3a",
+    "blocker": "La demande du distributeur n'est pas confirmée.",
+    "questions": [
+      {
+        "question": "Quelles tendances de consommation observez-vous en ce moment dans vos rayons ?",
+        "why": "Vérifier que la tendance repérée correspond à ce que voit le distributeur.",
+        "info_sought": "Besoin réel"
+      },
+      {
+        "question": "Envisagez-vous une nouvelle référence sous votre marque pour y répondre ?",
+        "why": "Passer de la tendance à une intention du client.",
+        "info_sought": "Objectifs du client"
+      },
+      {
+        "question": "Comment se décide le référencement d'une nouvelle référence, et à quel moment de l'année ?",
+        "why": "Comprendre le processus de décision et le calendrier.",
+        "info_sought": "Critères de décision"
+      }
+    ]
+  },
+  {
+    "id": "q-opp-4a",
+    "client_id": "4",
+    "opportunity_id": "opp-4a",
+    "blocker": "Aucun objectif chiffré de réduction du sucre.",
+    "questions": [
+      {
+        "question": "Quel niveau de réduction du sucre visez-vous, et sur quelles références ?",
+        "why": "Obtenir un objectif chiffré pour cadrer la proposition.",
+        "info_sought": "Objectifs du client"
+      },
+      {
+        "question": "Quel écart de goût accepteriez-vous par rapport à la recette actuelle ?",
+        "why": "Connaître la tolérance du client sur le goût.",
+        "info_sought": "Contraintes techniques"
+      },
+      {
+        "question": "Cette réduction est-elle liée à une échéance (réglementation, engagement de la marque, lancement) ?",
+        "why": "Évaluer l'urgence du projet.",
+        "info_sought": "Calendrier"
+      }
+    ]
+  },
+  {
+    "id": "q-opp-4b",
+    "client_id": "4",
+    "opportunity_id": "opp-4b",
+    "blocker": "Le niveau de réduction du sel attendu est inconnu.",
+    "questions": [
+      {
+        "question": "Quelle réduction de sel avez-vous en tête pour vos snacks ?",
+        "why": "Cadrer l'étude demandée avec un objectif chiffré.",
+        "info_sought": "Objectifs du client"
+      },
+      {
+        "question": "Quels produits seraient concernés en premier ?",
+        "why": "Prioriser le périmètre de l'étude.",
+        "info_sought": "Besoin réel"
+      },
+      {
+        "question": "Qui, côté produit, doit valider les tests de goût ?",
+        "why": "Identifier les décideurs et le critère de validation.",
+        "info_sought": "Critères de décision"
+      }
+    ]
+  },
+  {
+    "id": "q-opp-4c",
+    "client_id": "4",
+    "opportunity_id": "opp-4c",
+    "blocker": "Aucune demande du client, uniquement une tendance de marché.",
+    "questions": [
+      {
+        "question": "Prévoyez-vous des éditions saisonnières pour vos boissons cette année ?",
+        "why": "Vérifier que le sujet existe réellement chez le client.",
+        "info_sought": "Objectifs du client"
+      },
+      {
+        "question": "Quelles saveurs ou ambiances avez-vous déjà explorées ?",
+        "why": "Éviter de proposer ce qui a déjà été essayé.",
+        "info_sought": "Besoin réel"
+      },
+      {
+        "question": "À quelle date devriez-vous valider une saveur pour tenir votre calendrier de lancement ?",
+        "why": "Estimer le temps disponible pour un éventuel projet.",
+        "info_sought": "Calendrier"
+      }
+    ]
+  },
+  {
+    "id": "q-opp-5a",
+    "client_id": "5",
+    "opportunity_id": "opp-5a",
+    "blocker": "Intérêt exploratoire sans projet défini.",
+    "questions": [
+      {
+        "question": "Qu'est-ce qui vous pousse à regarder des alternatives végétales aujourd'hui ?",
+        "why": "Comprendre la motivation réelle derrière la question posée.",
+        "info_sought": "Objectifs du client"
+      },
+      {
+        "question": "Pour quel type de produit pensez-vous à une version végétale en premier ?",
+        "why": "Délimiter un premier périmètre.",
+        "info_sought": "Besoin réel"
+      },
+      {
+        "question": "Que faudrait-il pour que cette réflexion devienne un projet (budget, validation interne, calendrier) ?",
+        "why": "Identifier ce qui bloque le passage à l'action.",
+        "info_sought": "Critères de décision"
+      }
+    ]
+  },
+  {
+    "id": "q-opp-6a",
+    "client_id": "6",
+    "opportunity_id": "opp-6a",
+    "blocker": "Le seuil d'amertume acceptable n'est pas défini.",
+    "questions": [
+      {
+        "question": "À partir de quel niveau l'amertume devient-elle gênante lors de vos tests de goût ?",
+        "why": "Définir un critère mesurable de réussite.",
+        "info_sought": "Contraintes techniques"
+      },
+      {
+        "question": "Quelles contraintes de formulation (protéine utilisée, étiquetage, procédé) limitent les solutions de masquage ?",
+        "why": "Connaître les contraintes techniques avant de proposer des pistes.",
+        "info_sought": "Contraintes techniques"
+      },
+      {
+        "question": "Pour quand avez-vous besoin d'une solution validée ?",
+        "why": "Évaluer l'urgence du besoin.",
+        "info_sought": "Calendrier"
+      }
+    ]
+  },
+  {
+    "id": "q-opp-6b",
+    "client_id": "6",
+    "opportunity_id": "opp-6b",
+    "blocker": "De nouveaux profils de goût ont été évoqués, sans projet.",
+    "questions": [
+      {
+        "question": "Quels profils de goût souhaiteriez-vous ajouter à la gamme de barres ?",
+        "why": "Transformer une idée évoquée en besoin précis.",
+        "info_sought": "Besoin réel"
+      },
+      {
+        "question": "Visez-vous un nouveau public ou un nouveau moment de consommation ?",
+        "why": "Comprendre l'objectif commercial de l'extension.",
+        "info_sought": "Objectifs du client"
+      },
+      {
+        "question": "Cette extension figure-t-elle déjà dans votre feuille de route ?",
+        "why": "Savoir si le projet est planifié ou seulement envisagé.",
+        "info_sought": "Calendrier"
+      }
+    ]
+  },
+  {
+    "id": "q-opp-8a",
+    "client_id": "8",
+    "opportunity_id": "opp-8a",
+    "blocker": "L'objectif de durée du parfum n'est pas précisé.",
+    "questions": [
+      {
+        "question": "Combien de temps le parfum doit-il rester perceptible sur ces produits ?",
+        "why": "Fixer une cible mesurable de performance.",
+        "info_sought": "Contraintes techniques"
+      },
+      {
+        "question": "Quels produits de soin sont concernés en priorité ?",
+        "why": "Délimiter le périmètre du besoin.",
+        "info_sought": "Besoin réel"
+      },
+      {
+        "question": "Comment mesurez-vous la performance du parfum chez vous (test consommateur, panel interne) ?",
+        "why": "Connaître le critère qui fera valider la proposition.",
+        "info_sought": "Critères de décision"
+      }
+    ]
+  },
+  {
+    "id": "q-opp-8b",
+    "client_id": "8",
+    "opportunity_id": "opp-8b",
+    "blocker": "L'intérêt du client pour les ingrédients naturels n'est pas exprimé.",
+    "questions": [
+      {
+        "question": "Les ingrédients d'origine naturelle font-ils partie de la stratégie de vos prochaines gammes ?",
+        "why": "Vérifier que le sujet est réel chez le client.",
+        "info_sought": "Objectifs du client"
+      },
+      {
+        "question": "Quelle part d'origine naturelle ou quelles certifications attendez-vous ?",
+        "why": "Connaître le niveau d'exigence attendu.",
+        "info_sought": "Contraintes techniques"
+      },
+      {
+        "question": "Quel surcoût êtes-vous prêt à accepter pour un parfum d'origine naturelle ?",
+        "why": "Identifier la contrainte budgétaire avant d'aller plus loin.",
+        "info_sought": "Contraintes budgétaires"
+      }
+    ]
+  },
+  {
+    "id": "q-opp-9a",
+    "client_id": "9",
+    "opportunity_id": "opp-9a",
+    "blocker": "Un intérêt mentionné en passant, jamais confirmé.",
+    "questions": [
+      {
+        "question": "Vous avez évoqué un intérêt pour de nouvelles saveurs : est-ce un sujet actif pour vos boissons sans sucre ?",
+        "why": "Confirmer ou écarter un signal faible.",
+        "info_sought": "Objectifs du client"
+      },
+      {
+        "question": "Quelles saveurs vos consommateurs réclament-ils, ou lesquelles testez-vous déjà ?",
+        "why": "Cerner le besoin réel.",
+        "info_sought": "Besoin réel"
+      },
+      {
+        "question": "Dans quel calendrier une nouvelle saveur pourrait-elle être lancée ?",
+        "why": "Évaluer l'urgence et la possibilité d'un projet.",
+        "info_sought": "Calendrier"
+      }
+    ]
+  },
+  {
+    "id": "q-opp-11a",
+    "client_id": "11",
+    "opportunity_id": "opp-11a",
+    "blocker": "Le calendrier et le budget de la négociation sont flous.",
+    "questions": [
+      {
+        "question": "Où en êtes-vous de la décision sur cette nouvelle fragrance, et que reste-t-il à valider ?",
+        "why": "Situer précisément la négociation et lever le point de blocage.",
+        "info_sought": "Critères de décision"
+      },
+      {
+        "question": "Quelle enveloppe budgétaire est prévue pour ce projet ?",
+        "why": "Clarifier la contrainte budgétaire avant la proposition finale.",
+        "info_sought": "Contraintes budgétaires"
+      },
+      {
+        "question": "Quelle date de lancement visez-vous, et à quelle échéance devez-vous choisir la fragrance ?",
+        "why": "Calibrer le planning de développement.",
+        "info_sought": "Calendrier"
+      }
+    ]
+  },
+  {
+    "id": "q-opp-11b",
+    "client_id": "11",
+    "opportunity_id": "opp-11b",
+    "blocker": "Une déclinaison en soin a été évoquée, sans projet.",
+    "questions": [
+      {
+        "question": "Quels produits de soin imaginez-vous porter ce parfum ?",
+        "why": "Transformer l'idée en périmètre concret.",
+        "info_sought": "Besoin réel"
+      },
+      {
+        "question": "Comment cette déclinaison s'articulerait-elle avec le lancement du parfum ?",
+        "why": "Comprendre l'objectif de la déclinaison.",
+        "info_sought": "Objectifs du client"
+      },
+      {
+        "question": "Faut-il en parler dès maintenant dans la négociation ou après le premier lancement ?",
+        "why": "Choisir le bon moment pour aborder le sujet.",
+        "info_sought": "Calendrier"
+      }
+    ]
+  },
+  {
+    "id": "q-opp-12a",
+    "client_id": "12",
+    "opportunity_id": "opp-12a",
+    "blocker": "Les exigences de certification du client sont inconnues.",
+    "questions": [
+      {
+        "question": "Quelles certifications ou quels labels vos parfums doivent-ils respecter ?",
+        "why": "Connaître le niveau d'exigence avant de proposer quoi que ce soit.",
+        "info_sought": "Contraintes techniques"
+      },
+      {
+        "question": "Quels projets en cours ou à venir seraient concernés ?",
+        "why": "Délimiter le périmètre du besoin.",
+        "info_sought": "Besoin réel"
+      },
+      {
+        "question": "Qui valide les exigences de certification côté marque ?",
+        "why": "Identifier le décideur.",
+        "info_sought": "Critères de décision"
+      }
+    ]
+  },
+  {
+    "id": "q-client-7",
+    "client_id": "7",
+    "opportunity_id": null,
+    "blocker": "Aucun signal d'évolution du besoin, le compte est calme.",
+    "questions": [
+      {
+        "question": "Comment se passent vos deux projets en cours, et qu'est-ce qui pourrait être amélioré ?",
+        "why": "Repérer un besoin non exprimé à partir de l'expérience actuelle.",
+        "info_sought": "Besoin réel"
+      },
+      {
+        "question": "Quels lancements prévoyez-vous dans les 12 prochains mois en soin et en hygiène ?",
+        "why": "Détecter de nouveaux projets à venir.",
+        "info_sought": "Objectifs du client"
+      },
+      {
+        "question": "Y a-t-il des sujets sur lesquels vous aimeriez être accompagné davantage ?",
+        "why": "Ouvrir la discussion sur des besoins que le client n'a pas encore formulés.",
+        "info_sought": "Besoin réel"
+      }
+    ]
+  },
+  {
+    "id": "q-client-10",
+    "client_id": "10",
+    "opportunity_id": null,
+    "blocker": "Aucun signal d'évolution du besoin, le compte est calme.",
+    "questions": [
+      {
+        "question": "Comment se déroule le projet de biscuit fourré, et que retenez-vous de la collaboration jusqu'ici ?",
+        "why": "Mesurer la satisfaction et repérer des pistes d'amélioration.",
+        "info_sought": "Besoin réel"
+      },
+      {
+        "question": "Quels autres produits ou saveurs prévoyez-vous de développer prochainement ?",
+        "why": "Détecter de nouveaux projets à venir.",
+        "info_sought": "Objectifs du client"
+      },
+      {
+        "question": "Qui décide des nouveaux projets côté arômes, et sur quel calendrier ?",
+        "why": "Identifier les décideurs et le rythme de décision.",
+        "info_sought": "Critères de décision"
+      }
+    ]
+  }
+]
