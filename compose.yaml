@@ -2,7 +2,7 @@
 name: hackathon
 
 services:
-  # Le poste de travail : VS Code s'y attache, on y lance l'API et le front
+  # Le poste de travail : VS Code s'y attache, on y lance le front
   dev:
     build:
       context: .
