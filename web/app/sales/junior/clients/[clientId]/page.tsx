@@ -245,7 +245,7 @@ async function ClientDetailContent({ params }: PageProps) {
                   </div>
                 </dl>
                 <Link
-                  href={`/sales/opportunites/${opportunity.id}`}
+                  href={`/sales/junior/opportunites/${opportunity.id}`}
                   className="mt-auto flex h-11 w-full items-center justify-center gap-2 rounded-full bg-[#6542C2] px-5 text-sm font-medium text-white transition-all duration-300 ease-out hover:opacity-90 sm:w-fit"
                 >
                   Analyser l&apos;opportunité

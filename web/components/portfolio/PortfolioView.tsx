@@ -169,7 +169,7 @@ export default function PortfolioView({ clients, kpis }: Portfolio) {
             {visible.map((client) => (
               <li key={client.id}>
                 <Link
-                  href={`/sales/clients/${client.id}`}
+                  href={`/sales/junior/clients/${client.id}`}
                   className="group flex flex-col gap-3 rounded-2xl bg-[#F6F7F9] p-4 transition-colors duration-300 ease-out hover:bg-[#EFE9FC] sm:p-5 lg:flex-row lg:items-center lg:gap-6"
                 >
                   <div className="flex min-w-0 items-center gap-3 lg:w-[30%]">

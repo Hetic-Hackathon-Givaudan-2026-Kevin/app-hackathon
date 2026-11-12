@@ -1,4 +1,4 @@
-import type { OpportunityStatus, Priority } from '@/lib/crm';
+import type { EvidenceType, OpportunityStatus, Priority } from '@/lib/crm';
 
 const STATUS: Record<OpportunityStatus, { label: string; className: string }> =
   {
@@ -34,5 +34,20 @@ export function StatusBadge({ status }: { status: OpportunityStatus }) {
 
 export function PriorityBadge({ priority }: { priority: Priority }) {
   const { label, className } = PRIORITY[priority];
+  return <span className={`${base} ${className}`}>{label}</span>;
+}
+
+const EVIDENCE: Record<EvidenceType, { label: string; className: string }> = {
+  fait: { label: 'Fait', className: 'bg-[#2FA66A]/10 text-[#2FA66A]' },
+  hypothese: { label: 'Hypothèse', className: 'bg-[#EFE9FC] text-[#6542C2]' },
+  a_confirmer: {
+    label: 'À confirmer',
+    className: 'bg-[#F4A340]/10 text-[#F4A340]',
+  },
+};
+
+// Distingue ce qui est un fait, une hypothèse de l'IA ou une donnée à confirmer
+export function EvidenceBadge({ type }: { type: EvidenceType }) {
+  const { label, className } = EVIDENCE[type];
   return <span className={`${base} ${className}`}>{label}</span>;
 }

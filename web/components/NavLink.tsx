@@ -8,17 +8,22 @@ interface NavLinkProps {
   // true : actif seulement sur l'URL exacte (ex. le tableau de bord)
   exact?: boolean;
   children: React.ReactNode;
+  alsoActiveOn?: string[]; // nouveau
 }
 
 export default function NavLink({
   href,
   exact = false,
+  alsoActiveOn = [],
   children,
 }: NavLinkProps) {
   const pathname = usePathname();
+  const matches = (base: string) =>
+    pathname === base || pathname.startsWith(`${base}/`);
+
   const isActive = exact
     ? pathname === href
-    : pathname === href || pathname.startsWith(`${href}/`);
+    : matches(href) || alsoActiveOn.some(matches);
 
   return (
     <Link
