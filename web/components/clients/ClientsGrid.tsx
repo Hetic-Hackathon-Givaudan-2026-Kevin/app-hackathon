@@ -41,10 +41,10 @@ export default function ClientsGrid({
 
   return (
     <div className="flex flex-col gap-4 sm:gap-5">
-      <section ref={topRef} className="scroll-mt-4 rounded-3xl">
+      <section ref={topRef} className="scroll-mt-4">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h1 className="text-2xl font-semibold tracking-tight text-[#172033] sm:text-3xl lg:text-4xl">
+            <h1 className="text-3xl font-normal tracking-tight text-[#172033] sm:text-4xl lg:text-5xl">
               Portefeuille clients
             </h1>
             <p className="mt-1 text-sm text-[#667085] sm:text-base">
@@ -59,7 +59,7 @@ export default function ClientsGrid({
           </p>
         </div>
 
-        <div className="mt-5 flex items-center gap-3 rounded-full bg-[#F6F7F9] px-4 py-2.5 sm:max-w-md">
+        <div className="mt-5 flex items-center gap-3 rounded-full bg-white px-4 py-2.5 shadow-[0_1px_2px_rgba(23,32,51,0.05)] sm:max-w-md">
           <Search size={18} className="shrink-0 text-slate-400" />
           <input
             type="search"
@@ -88,7 +88,7 @@ export default function ClientsGrid({
             <li key={client.id}>
               <Link
                 href={`/sales/junior/clients/${client.id}`}
-                className="group flex h-full flex-col gap-4 rounded-3xl bg-white p-5 transition-colors duration-300 ease-out hover:bg-[#EFE9FC] sm:p-6"
+                className="group flex h-full flex-col gap-4 rounded-[28px] border border-white/80 bg-white/55 p-5 shadow-[0_18px_40px_-28px_rgba(23,32,51,0.35)] backdrop-blur-xl transition-colors duration-300 ease-out hover:bg-white/90 sm:p-6"
               >
                 <div className="flex items-start gap-3">
                   <div className="shrink-0 rounded-2xl bg-[#F6F7F9] p-2.5 text-slate-600 transition-colors group-hover:bg-white">
@@ -113,7 +113,7 @@ export default function ClientsGrid({
                       {client.account_manager}
                     </p>
                   </div>
-                  <span className="inline-flex shrink-0 items-center gap-2 text-sm font-medium text-[#6542C2]">
+                  <span className="inline-flex shrink-0 items-center gap-2 text-sm font-medium text-[#172033]">
                     Voir la fiche
                     <ArrowRight
                       size={16}

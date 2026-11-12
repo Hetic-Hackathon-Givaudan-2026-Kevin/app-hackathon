@@ -33,7 +33,7 @@ export const juniorNav: NavItem[] = [
     icon: CalendarCheck,
   },
   {
-    href: '/sales/junior/bonnes-pratiques',
+    href: '/sales/junior/good-practices',
     label: 'Bonnes pratiques',
     icon: BookOpen,
   },

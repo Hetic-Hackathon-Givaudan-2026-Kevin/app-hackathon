@@ -31,7 +31,7 @@ export default function NavLink({
       aria-current={isActive ? 'page' : undefined}
       className={`flex items-center gap-3 rounded-full p-5.5 px-7 text-sm transition-all duration-300 ease-out ${
         isActive
-          ? 'bg-violet-500 font-medium text-white'
+          ? 'bg-[#172033] font-medium text-white'
           : 'bg-white/50 text-[#172033] hover:bg-white'
       }`}
     >

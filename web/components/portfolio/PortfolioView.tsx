@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { ArrowRight, Building2, Search, X } from 'lucide-react';
 import ClientPills from '@/components/clients/ClientPills';
 import Pagination from '@/components/ui/Pagination';
+import { DotNumber, glowCard, softCard } from '@/components/ui/Soft';
 import type { Portfolio } from '@/lib/portfolio';
 import { normalize } from '@/lib/text';
 
@@ -37,20 +38,39 @@ function Kpi({
   label,
   value,
   className,
+  glow,
 }: {
   label: string;
   value: number;
   className: string;
+  glow?: 'glow-green' | 'glow-orange'; // carte à dégradé, chiffre blanc
 }) {
+  if (glow) {
+    return (
+      <div
+        className={`${glowCard} ${glow} flex min-h-40 flex-col justify-between gap-3`}
+      >
+        <span className="text-sm text-[#172033]">{label}</span>
+        <p className="text-center">
+          <DotNumber light className="text-6xl">
+            {value}
+          </DotNumber>
+        </p>
+      </div>
+    );
+  }
+
   return (
-    <div className="flex flex-col items-start gap-3 rounded-3xl bg-white p-4 sm:p-6">
+    <div
+      className={`${softCard} flex min-h-40 flex-col items-start justify-between gap-3`}
+    >
       <span
         className={`rounded-full px-3 py-1 text-xs font-medium ${className}`}
       >
         {label}
       </span>
-      <p className="text-4xl font-semibold tracking-tight text-[#172033] sm:text-5xl">
-        {value}
+      <p>
+        <DotNumber className="text-6xl">{value}</DotNumber>
       </p>
     </div>
   );
@@ -88,7 +108,7 @@ export default function PortfolioView({ clients, kpis }: Portfolio) {
       <section className="rounded-3xl">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           <div>
-            <h1 className="text-2xl font-semibold tracking-tight text-[#172033] sm:text-3xl lg:text-4xl">
+            <h1 className="text-3xl font-normal tracking-tight text-[#172033] sm:text-4xl lg:text-5xl">
               Tableau de bord
             </h1>
             <p className="mt-1 text-sm text-[#667085] sm:text-base">
@@ -118,21 +138,20 @@ export default function PortfolioView({ clients, kpis }: Portfolio) {
           label="Opportunités à qualifier"
           value={kpis.opportunitiesToQualify}
           className="bg-[#F4A340]/10 text-[#F4A340]"
+          glow="glow-orange"
         />
         <Kpi
           label="Rendez-vous à préparer"
           value={kpis.meetingsToPrepare}
           className="bg-[#2FA66A]/10 text-[#2FA66A]"
+          glow="glow-green"
         />
       </section>
 
       {/* D. Liste des clients */}
-      <section
-        ref={listRef}
-        className="scroll-mt-4 rounded-3xl bg-white p-5 sm:p-6 lg:p-7"
-      >
+      <section ref={listRef} className={`scroll-mt-4 ${softCard}`}>
         <div className="mb-4 flex items-baseline justify-between gap-3 sm:mb-5">
-          <h2 className="text-xl font-semibold tracking-tight text-[#172033] sm:text-2xl">
+          <h2 className="text-xl font-normal tracking-tight text-[#172033] sm:text-2xl">
             Mes clients
           </h2>
           <p aria-live="polite" className="text-sm text-[#667085]">
@@ -141,7 +160,7 @@ export default function PortfolioView({ clients, kpis }: Portfolio) {
         </div>
 
         <div className="mb-4 sm:mb-5">
-          <div className="flex items-center gap-3 rounded-full bg-[#F6F7F9] px-4 py-2.5 sm:max-w-md">
+          <div className="flex items-center gap-3 rounded-full bg-white px-4 py-2.5 shadow-[0_1px_2px_rgba(23,32,51,0.05)] sm:max-w-md">
             <Search size={18} className="shrink-0 text-slate-400" />
             <input
               type="search"
@@ -170,10 +189,10 @@ export default function PortfolioView({ clients, kpis }: Portfolio) {
               <li key={client.id}>
                 <Link
                   href={`/sales/junior/clients/${client.id}`}
-                  className="group flex flex-col gap-3 rounded-2xl bg-[#F6F7F9] p-4 transition-colors duration-300 ease-out hover:bg-[#EFE9FC] sm:p-5 lg:flex-row lg:items-center lg:gap-6"
+                  className="group flex flex-col gap-3 rounded-[22px] bg-white/90 p-4 shadow-[0_1px_2px_rgba(23,32,51,0.05)] transition-colors duration-300 ease-out hover:bg-white sm:p-5 lg:flex-row lg:items-center lg:gap-6"
                 >
                   <div className="flex min-w-0 items-center gap-3 lg:w-[30%]">
-                    <div className="shrink-0 rounded-2xl bg-white p-2.5 text-slate-600">
+                    <div className="shrink-0 rounded-2xl bg-[#F3F4F6] p-2.5 text-slate-600">
                       <Building2 size={20} />
                     </div>
                     <div className="min-w-0">

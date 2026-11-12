@@ -5,6 +5,12 @@ import { ArrowRight, Building2, CalendarCheck, Sparkles } from 'lucide-react';
 import BackButton from '@/components/BackButton';
 import { EvidenceBadge, PriorityBadge, StatusBadge } from '@/components/Badges';
 import {
+  glowCardInk,
+  primaryButton,
+  sectionTitle,
+  softCard,
+} from '@/components/ui/Soft';
+import {
   confidenceLabel,
   formatDate,
   getOpportunityDetail,
@@ -29,19 +35,15 @@ export function generateStaticParams() {
 function Card({
   title,
   children,
-  className = '',
+  className = softCard,
 }: {
   title?: string;
   children: React.ReactNode;
-  className?: string;
+  className?: string; // remplace le style de carte par défaut
 }) {
   return (
-    <section className={`rounded-3xl bg-white p-5 sm:p-6 lg:p-7 ${className}`}>
-      {title && (
-        <h2 className="mb-4 text-xl font-semibold tracking-tight text-[#172033] sm:mb-5 sm:text-2xl">
-          {title}
-        </h2>
-      )}
+    <section className={className}>
+      {title && <h2 className={`${sectionTitle} mb-4 sm:mb-5`}>{title}</h2>}
       {children}
     </section>
   );
@@ -49,7 +51,7 @@ function Card({
 
 function Metric({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-2xl bg-[#F6F7F9] p-4">
+    <div className="rounded-[22px] bg-white/90 p-4 shadow-[0_1px_2px_rgba(23,32,51,0.05)]">
       <dt className="text-xs text-[#667085]">{label}</dt>
       <dd className="mt-1 text-sm font-medium text-[#172033]">{value}</dd>
     </div>
@@ -95,16 +97,16 @@ async function OpportunityDetailContent({ params }: PageProps) {
           <StatusBadge status={opportunity.status} />
           <PriorityBadge priority={opportunity.priority} />
         </div>
-        <h1 className="mt-3 text-2xl font-semibold tracking-tight text-[#172033] sm:text-3xl lg:text-4xl">
+        <h1 className="mt-3 text-3xl font-normal tracking-tight text-[#172033] sm:text-4xl lg:text-5xl">
           {opportunity.title}
         </h1>
         <dl className="mt-5 grid gap-3 sm:grid-cols-2">
-          <div className="rounded-2xl bg-[#F6F7F9] p-4">
+          <div className="rounded-[22px] bg-white/90 p-4 shadow-[0_1px_2px_rgba(23,32,51,0.05)]">
             <dt className="text-xs text-[#667085]">Client associé</dt>
             <dd className="mt-1">
               <Link
                 href={clientHref(client.id)}
-                className="inline-flex items-center gap-2 text-sm font-medium text-[#6542C2] transition-opacity hover:opacity-80"
+                className="inline-flex items-center gap-2 text-sm font-medium text-[#172033] underline decoration-[#172033]/20 underline-offset-4 transition-colors hover:decoration-[#172033]"
               >
                 <Building2 size={16} />
                 {client.name}
@@ -131,7 +133,7 @@ async function OpportunityDetailContent({ params }: PageProps) {
                 {signals.map((signal) => (
                   <li
                     key={signal.id}
-                    className="rounded-2xl bg-[#F6F7F9] p-4 sm:p-5"
+                    className="rounded-[22px] bg-white/90 p-4 shadow-[0_1px_2px_rgba(23,32,51,0.05)] sm:p-5"
                   >
                     <div className="flex flex-wrap items-center justify-between gap-2">
                       <EvidenceBadge type={signal.evidence_type} />
@@ -160,15 +162,15 @@ async function OpportunityDetailContent({ params }: PageProps) {
           {/* D. Justification IA */}
           <Card
             title="Pourquoi cette opportunité est-elle intéressante ?"
-            className="bg-linear-to-br from-[#EFE9FC] via-[#F5EEFB] to-[#FDEBDD]"
+            className={`${glowCardInk} glow-pink`}
           >
-            <p className="mb-4 inline-flex items-center gap-2 rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-[#6542C2]">
+            <p className="mb-4 inline-flex items-center gap-2 rounded-full bg-[#E6F03C] px-3 py-1 text-xs font-medium text-[#172033]">
               <Sparkles size={14} />
               Analyse de l&apos;IA, à valider par le commercial
             </p>
             {justification ? (
               <div className="space-y-4">
-                <div className="rounded-2xl bg-white/70 p-4 sm:p-5">
+                <div className="rounded-[22px] bg-white/90 p-4 sm:p-5">
                   <h3 className="text-sm font-semibold text-[#172033]">
                     Informations utilisées
                   </h3>
@@ -182,7 +184,7 @@ async function OpportunityDetailContent({ params }: PageProps) {
                     ))}
                   </ul>
                 </div>
-                <div className="rounded-2xl bg-white/70 p-4 sm:p-5">
+                <div className="rounded-[22px] bg-white/90 p-4 sm:p-5">
                   <h3 className="text-sm font-semibold text-[#172033]">
                     Raisonnement
                   </h3>
@@ -190,7 +192,7 @@ async function OpportunityDetailContent({ params }: PageProps) {
                     {justification.reasoning}
                   </p>
                 </div>
-                <div className="rounded-2xl bg-white/70 p-4 sm:p-5">
+                <div className="rounded-[22px] bg-white/90 p-4 sm:p-5">
                   <h3 className="text-sm font-semibold text-[#172033]">
                     Reste à vérifier
                   </h3>
@@ -243,10 +245,10 @@ async function OpportunityDetailContent({ params }: PageProps) {
             </p>
             <Link
               href={copilotHref(opportunity.id)}
-              className="mt-5 flex h-11 w-full items-center justify-center gap-2 rounded-full bg-[#6542C2] px-5 text-sm font-medium text-white transition-all duration-300 ease-out hover:opacity-90"
+              className={`${primaryButton} mt-5 w-full`}
             >
               <CalendarCheck size={16} />
-              <p className="text-xs"> Préparer mon rendez-vous</p>
+              Préparer mon rendez-vous
               <ArrowRight size={16} />
             </Link>
           </Card>

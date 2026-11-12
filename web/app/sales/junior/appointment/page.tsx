@@ -1,124 +1,222 @@
 import Link from 'next/link';
-import { ArrowRight, Building2, Target } from 'lucide-react';
-import { PriorityBadge, StatusBadge } from '@/components/Badges';
-import { getUpcomingMeetings } from '@/lib/appointments';
-import { formatDate } from '@/lib/crm';
+import { ArrowRight } from 'lucide-react';
+import { StatusBadge } from '@/components/Badges';
+import {
+  DotNumber,
+  ghostButton,
+  glowCard,
+  LimeTag,
+  mutedButton,
+  pageTitle,
+  primaryButton,
+  sectionTitle,
+  softCard,
+  softTile,
+  Stat,
+} from '@/components/ui/Soft';
+import { getMeetings, type MeetingRow } from '@/lib/meetings';
 
-// Un clic ouvre le détail de l'opportunité liée au rendez-vous
+const prepareHref = (opportunityId: string) =>
+  `/sales/junior/appointment/prepare/${opportunityId}`;
+const debriefHref = (opportunityId: string) =>
+  `/sales/junior/appointment/debrief/${opportunityId}`;
 const opportunityHref = (opportunityId: string) =>
   `/sales/junior/opportunites/${opportunityId}`;
 
-const MONTHS = [
-  'janv.',
-  'févr.',
-  'mars',
-  'avr.',
-  'mai',
-  'juin',
-  'juil.',
-  'août',
-  'sept.',
-  'oct.',
-  'nov.',
-  'déc.',
-];
+function DateTile({ meeting }: { meeting: MeetingRow }) {
+  return (
+    <div
+      title={meeting.date}
+      className="flex w-16 shrink-0 flex-col items-center gap-1 rounded-[18px] bg-[#F3F4F6] px-2 py-2.5"
+    >
+      <DotNumber className="text-2xl">{meeting.day}</DotNumber>
+      <span className="text-[11px] text-[#667085]">{meeting.month}</span>
+    </div>
+  );
+}
 
-// Date AAAA-MM-JJ lue sans fuseau : évite tout décalage d'un jour
-function dayAndMonth(isoDate: string) {
-  const [, month, day] = isoDate.split('-').map(Number);
-  return { day, month: MONTHS[month - 1] };
+function MeetingHeading({ meeting }: { meeting: MeetingRow }) {
+  return (
+    <div className="min-w-0 flex-1">
+      <div className="flex flex-wrap items-center gap-2">
+        <p className="font-medium text-[#172033]">{meeting.client.name}</p>
+        <StatusBadge status={meeting.opportunity.status} />
+      </div>
+      <Link
+        href={opportunityHref(meeting.opportunity.id)}
+        className="text-sm text-[#172033] underline decoration-[#172033]/20 underline-offset-4 transition-colors hover:decoration-[#172033]"
+      >
+        {meeting.opportunity.title}
+      </Link>
+      <p className="mt-1 text-sm text-[#667085]">{meeting.objective}</p>
+    </div>
+  );
 }
 
 export default function AppointmentPage() {
-  const meetings = getUpcomingMeetings();
+  const { toPrepare, done } = getMeetings();
+  const next = toPrepare.find((meeting) => meeting.hasCopilot) ?? null;
+  const last = done[0] ?? null;
 
   return (
     <div className="flex flex-col gap-4 sm:gap-5">
-      <section className="rounded-3xl">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <h1 className="text-2xl font-semibold tracking-tight text-[#172033] sm:text-3xl lg:text-4xl">
-              Rendez-vous à venir
-            </h1>
-            <p className="mt-1 text-sm text-[#667085] sm:text-base">
-              Vos rendez-vous prévus avec les clients. Ouvrez-en un pour voir
-              l&apos;opportunité concernée.
-            </p>
-          </div>
-          <p className="w-fit rounded-full bg-[#F6F7F9] px-4 py-1.5 text-sm text-[#667085]">
-            {meetings.length}{' '}
-            {meetings.length > 1 ? 'rendez-vous prévus' : 'rendez-vous prévu'}
+      {/* A. Titre et indicateurs */}
+      <section className="flex flex-col gap-5">
+        <div>
+          <h1 className={pageTitle}>Mes rendez-vous</h1>
+          <p className="mt-2 text-sm text-[#667085] sm:text-base">
+            Préparez vos prochains échanges, puis complétez-les juste après.
           </p>
+        </div>
+        <div className="flex flex-wrap gap-x-12 gap-y-4">
+          <Stat
+            value={toPrepare.length + done.length}
+            label="Total"
+            highlight
+          />
+          <Stat value={toPrepare.length} label="À préparer" />
+          <Stat value={done.length} label="Réalisés" />
         </div>
       </section>
 
-      {meetings.length > 0 ? (
-        <ul className="grid gap-3 sm:gap-4 lg:grid-cols-2">
-          {meetings.map((meeting) => {
-            const { day, month } = dayAndMonth(meeting.date);
-            return (
-              <li key={meeting.id} className="min-w-0">
-                <Link
-                  href={opportunityHref(meeting.opportunity.id)}
-                  aria-label={`Rendez-vous du ${formatDate(meeting.date)} avec ${meeting.client.name} : ${meeting.opportunity.title}`}
-                  className="group flex h-full gap-4 rounded-3xl bg-white p-5 transition-colors duration-300 ease-out hover:bg-[#EFE9FC] sm:p-6"
-                >
-                  <div
-                    aria-hidden="true"
-                    className="flex size-16 shrink-0 flex-col items-center justify-center rounded-2xl bg-[#EFE9FC] text-[#6542C2] transition-colors group-hover:bg-white sm:size-18"
-                  >
-                    <span className="text-2xl leading-none font-semibold">
-                      {day}
-                    </span>
-                    <span className="mt-1 text-xs font-medium">{month}</span>
+      {/* B. Prochain rendez-vous et dernier compte rendu */}
+      <div className="grid gap-4 sm:gap-5 lg:grid-cols-2">
+        {next && (
+          <section
+            className={`${glowCard} glow-orange flex min-h-64 flex-col justify-between gap-6`}
+          >
+            <p className="text-sm text-[#172033]">Prochain rendez-vous</p>
+            <div className="flex flex-col items-center gap-2 text-center">
+              <DotNumber light className="text-7xl">
+                {next.day}
+              </DotNumber>
+              <p className="text-sm">
+                {next.month} • {next.client.name}
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+              <p className="text-sm text-[#172033]">{next.opportunity.title}</p>
+              <Link
+                href={prepareHref(next.opportunity.id)}
+                className={ghostButton}
+              >
+                Préparer
+                <ArrowRight size={16} />
+              </Link>
+            </div>
+          </section>
+        )}
+        {last && (
+          <section
+            className={`${glowCard} glow-green flex min-h-64 flex-col justify-between gap-6`}
+          >
+            <p className="text-sm text-[#172033]">Dernier compte rendu</p>
+            <div className="flex flex-col items-center gap-2 text-center">
+              <DotNumber light className="text-7xl">
+                {last.day}
+              </DotNumber>
+              <p className="text-sm">
+                {last.month} • {last.client.name}
+              </p>
+            </div>
+            <p className="text-sm">
+              {last.summary || 'Aucun compte rendu enregistré.'}
+            </p>
+          </section>
+        )}
+      </div>
+
+      {/* C. Rendez-vous à préparer */}
+      <section className={softCard}>
+        <div className="mb-4 flex items-center gap-3 sm:mb-5">
+          <h2 className={sectionTitle}>À préparer</h2>
+          <LimeTag>{toPrepare.length}</LimeTag>
+        </div>
+        {toPrepare.length > 0 ? (
+          <ul className="flex flex-col gap-3">
+            {toPrepare.map((meeting) => (
+              <li
+                key={meeting.id}
+                className={`${softTile} flex flex-col gap-4 p-4 lg:flex-row lg:items-center`}
+              >
+                <div className="flex min-w-0 flex-1 items-start gap-4">
+                  <DateTile meeting={meeting} />
+                  <MeetingHeading meeting={meeting} />
+                </div>
+                {meeting.hasCopilot && (
+                  <div className="flex shrink-0 flex-col gap-2 sm:flex-row">
+                    <Link
+                      href={debriefHref(meeting.opportunity.id)}
+                      className={mutedButton}
+                    >
+                      Compléter après le RDV
+                    </Link>
+                    <Link
+                      href={prepareHref(meeting.opportunity.id)}
+                      className={primaryButton}
+                    >
+                      Préparer
+                      <ArrowRight size={16} />
+                    </Link>
                   </div>
-
-                  <div className="flex min-w-0 flex-1 flex-col gap-3">
-                    <div>
-                      <p className="flex items-center gap-2 text-sm text-[#667085]">
-                        <span className="truncate">
-                          <span className="font-medium text-[#172033]">
-                            {meeting.client.name}
-                          </span>{' '}
-                          • {meeting.client.sector}
-                        </span>
-                      </p>
-                      <h2 className="mt-1 text-lg font-semibold tracking-tight text-[#172033]">
-                        {meeting.opportunity.title}
-                      </h2>
-                    </div>
-
-                    <div className="flex flex-wrap gap-2">
-                      <StatusBadge status={meeting.opportunity.status} />
-                      <PriorityBadge priority={meeting.opportunity.priority} />
-                    </div>
-
-                    <p className="flex items-start gap-2 text-sm text-[#667085]">
-                      <Target
-                        size={16}
-                        className="mt-0.5 shrink-0 text-[#6542C2]"
-                      />
-                      {meeting.objective}
-                    </p>
-
-                    <span className="mt-auto inline-flex items-center gap-2 pt-1 text-sm font-medium text-[#6542C2]">
-                      Voir l&apos;opportunité
-                      <ArrowRight
-                        size={16}
-                        className="transition-transform duration-300 group-hover:translate-x-1"
-                      />
-                    </span>
-                  </div>
-                </Link>
+                )}
               </li>
-            );
-          })}
-        </ul>
-      ) : (
-        <p className="rounded-3xl bg-white p-8 text-center text-sm text-[#667085]">
-          Aucun rendez-vous prévu pour le moment.
-        </p>
-      )}
+            ))}
+          </ul>
+        ) : (
+          <p className="text-sm text-[#667085]">
+            Aucun rendez-vous à préparer.
+          </p>
+        )}
+      </section>
+
+      {/* D. Rendez-vous réalisés */}
+      <section className={softCard}>
+        <div className="mb-4 flex items-center gap-3 sm:mb-5">
+          <h2 className={sectionTitle}>Rendez-vous réalisés</h2>
+          <LimeTag>{done.length}</LimeTag>
+        </div>
+        {done.length > 0 ? (
+          <ul className="grid gap-3 xl:grid-cols-2">
+            {done.map((meeting) => (
+              <li
+                key={meeting.id}
+                className={`${softTile} flex flex-col gap-4 p-4`}
+              >
+                <div className="flex min-w-0 items-start gap-4">
+                  <DateTile meeting={meeting} />
+                  <MeetingHeading meeting={meeting} />
+                </div>
+                <div className="rounded-[18px] bg-[#F3F4F6] p-4">
+                  <h3 className="text-xs text-[#667085]">Compte rendu</h3>
+                  <p className="mt-1 text-sm text-[#172033]">
+                    {meeting.summary || 'Aucun compte rendu enregistré.'}
+                  </p>
+                  {meeting.nextActions.length > 0 && (
+                    <>
+                      <h3 className="mt-3 text-xs text-[#667085]">
+                        Prochaines actions
+                      </h3>
+                      <ul className="mt-1 list-disc space-y-1 pl-5 text-sm text-[#172033]">
+                        {meeting.nextActions.map((action) => (
+                          <li key={action}>{action}</li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="text-sm text-[#667085]">Aucun rendez-vous réalisé.</p>
+        )}
+      </section>
+
+      <p className="text-xs text-[#667085]">
+        Prototype : rendez-vous fictifs, repris du jeu de données de
+        démonstration.
+      </p>
     </div>
   );
 }
