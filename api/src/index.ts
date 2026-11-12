@@ -11,7 +11,7 @@ try {
 const { DATABASE_URL, AI_BASE_URL, AI_MODEL, AI_API_KEY = '' } = process.env;
 // L'API de l'équipe Data/IA : si elle est configurée, elle remplace le fournisseur
 const { DATA_AI_URL, DATA_AI_KEY = '' } = process.env;
-const PORT = Number(process.env.PORT ?? 3000);
+const PORT = Number(process.env.PORT ?? 4000);
 
 const db = new pg.Pool({ connectionString: DATABASE_URL });
 const app = express();
