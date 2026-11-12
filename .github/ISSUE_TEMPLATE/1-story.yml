@@ -17,7 +17,7 @@ body:
     attributes:
       label: Critères d'acceptation
       description: Vérifiables par quelqu'un d'autre. Une case par critère.
-      value: '- [ ] Étant donné …, quand …, alors …'
+      value: "- [ ] Étant donné …, quand …, alors …"
     validations:
       required: true
   - type: textarea

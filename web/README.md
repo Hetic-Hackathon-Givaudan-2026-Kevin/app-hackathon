@@ -8,8 +8,6 @@ Un commercial Givaudan doit à la fois construire une relation de qualité, comp
 
 Sillage est un copilote IA qui prépare le commercial avant le rendez-vous , l'aide a aiguiller le client pendant le rendez-vous et optimise la transmission des données après le rendez-vous
 
-
-
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
