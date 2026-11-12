@@ -1,5 +1,3 @@
-export default function LayoutSenior(){
-    return(
-        <div></div>
-    )
+export default function LayoutSenior() {
+  return <div></div>;
 }

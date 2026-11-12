@@ -33,8 +33,8 @@
   "forwardPorts": [3000, 4000, "db:5432"],
 
   // Une fois, à la création : les dépendances, et le fichier .env local
-  "postCreateCommand": "git config --global --add safe.directory /workspace && npm install && (test -f api/.env || cp api/.env.example api/.env)",
+  "postCreateCommand": "git config --global --add safe.directory /workspace && npm ci && (test -f api/.env || cp api/.env.example api/.env)",
 
   // 2. Lancement automatique de l'API et de Next.js en arrière-plan au démarrage
-  "postStartCommand": "nohup npm run dev > /tmp/dev.log 2>&1 &"
+  "postStartCommand": "npm run dev &"
 }

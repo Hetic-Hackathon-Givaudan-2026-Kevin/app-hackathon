@@ -1,5 +1,3 @@
-export default function IndexSenior(){
-    return(
-        <div></div>
-    )
+export default function IndexSenior() {
+  return <div></div>;
 }
