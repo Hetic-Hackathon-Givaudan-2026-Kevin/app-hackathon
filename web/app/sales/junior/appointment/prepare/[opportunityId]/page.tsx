@@ -35,5 +35,5 @@ async function PrepareMeetingContent({ params }: PageProps) {
   const context = getCopilotContext(opportunityId);
   if (!context) notFound();
 
-  return <MeetingCopilot {...context} />;
+  return <MeetingCopilot {...context} role="junior" />;
 }

@@ -7,6 +7,7 @@ import ClientPills from '@/components/clients/ClientPills';
 import Pagination from '@/components/ui/Pagination';
 import { DotNumber, glowCard, softCard } from '@/components/ui/Soft';
 import type { Portfolio } from '@/lib/portfolio';
+import { useRoutes } from '@/lib/use-role';
 import { normalize } from '@/lib/text';
 
 const PAGE_SIZE = 6;
@@ -77,6 +78,7 @@ function Kpi({
 }
 
 export default function PortfolioView({ clients, kpis }: Portfolio) {
+  const routes = useRoutes();
   const [query, setQuery] = useState('');
   const [page, setPage] = useState(1);
   const listRef = useRef<HTMLElement>(null);
@@ -188,7 +190,7 @@ export default function PortfolioView({ clients, kpis }: Portfolio) {
             {visible.map((client) => (
               <li key={client.id}>
                 <Link
-                  href={`/sales/junior/clients/${client.id}`}
+                  href={routes.client(client.id)}
                   className="group flex flex-col gap-3 rounded-[22px] bg-white/90 p-4 shadow-[0_1px_2px_rgba(23,32,51,0.05)] transition-colors duration-300 ease-out hover:bg-white sm:p-5 lg:flex-row lg:items-center lg:gap-6"
                 >
                   <div className="flex min-w-0 items-center gap-3 lg:w-[30%]">

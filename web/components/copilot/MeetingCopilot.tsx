@@ -1,5 +1,7 @@
 import Link from 'next/link';
 import { ArrowRight, Building2, EyeOff } from 'lucide-react';
+import CopilotQuestions from '@/components/copilot/CopilotQuestions';
+import SeniorGuidance from '@/components/copilot/SeniorGuidance';
 import {
   DotNumber,
   glowCard,
@@ -12,13 +14,7 @@ import {
   SoftTag,
 } from '@/components/ui/Soft';
 import type { CopilotContext } from '@/lib/copilot';
-
-// Routes de destination : à adapter si tes pages sont ailleurs
-const clientHref = (clientId: string) => `/sales/junior/clients/${clientId}`;
-const opportunityHref = (opportunityId: string) =>
-  `/sales/junior/opportunites/${opportunityId}`;
-const debriefHref = (opportunityId: string) =>
-  `/sales/junior/appointment/debrief/${opportunityId}`;
+import { routes, type Role } from '@/lib/roles';
 
 const linkClass =
   'underline decoration-[#172033]/20 underline-offset-4 transition-colors hover:decoration-[#172033]';
@@ -34,7 +30,9 @@ export default function MeetingCopilot({
   known,
   missing,
   questions,
-}: CopilotContext) {
+  role,
+}: CopilotContext & { role: Role }) {
+  const r = routes(role);
   return (
     <div className="flex flex-col gap-4 sm:gap-5">
       {/* A. Contexte du rendez-vous */}
@@ -43,7 +41,7 @@ export default function MeetingCopilot({
         <h1 className={pageTitle}>Préparer mon rendez-vous</h1>
         <p className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-[#667085] sm:text-base">
           <Link
-            href={clientHref(client.id)}
+            href={r.client(client.id)}
             className={`inline-flex items-center gap-2 text-[#172033] ${linkClass}`}
           >
             <Building2 size={16} />
@@ -51,7 +49,7 @@ export default function MeetingCopilot({
           </Link>
           •
           <Link
-            href={opportunityHref(opportunity.id)}
+            href={r.opportunity(opportunity.id)}
             className={`text-[#172033] ${linkClass}`}
           >
             {opportunity.title}
@@ -108,7 +106,10 @@ export default function MeetingCopilot({
         </section>
       </div>
 
-      {/* C. Objectif recommandé */}
+      {/* C. Ce qu'en dit un senior */}
+      <SeniorGuidance opportunityId={opportunity.id} />
+
+      {/* D. Objectif recommandé */}
       <section className={softCard}>
         <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:gap-8">
           <h2 className={`${sectionTitle} shrink-0 lg:w-56`}>
@@ -124,34 +125,10 @@ export default function MeetingCopilot({
         </div>
       </section>
 
-      {/* D. Questions suggérées par l'IA */}
-      <section className={softCard}>
-        <div className="mb-4 flex flex-col gap-1 sm:mb-5 sm:flex-row sm:items-baseline sm:justify-between sm:gap-3">
-          <h2 className={sectionTitle}>{questions.length} questions à poser</h2>
-          <p className="text-sm text-[#667085]">
-            À répartir dans l&apos;échange, pas à réciter.
-          </p>
-        </div>
-        <ol className="grid gap-3 lg:grid-cols-3">
-          {questions.map((item, index) => (
-            <li
-              key={item.question}
-              className={`${softTile} flex flex-col gap-3 p-5`}
-            >
-              <div className="flex items-start justify-between gap-3">
-                <DotNumber className="text-4xl">{index + 1}</DotNumber>
-                <SoftTag>{item.info_sought}</SoftTag>
-              </div>
-              <p className="text-base text-[#172033]">« {item.question} »</p>
-              <p className="mt-auto rounded-[18px] bg-[#F3F4F6] p-3 text-sm text-[#667085]">
-                <span className="text-[#172033]">Pourquoi ?</span> {item.why}
-              </p>
-            </li>
-          ))}
-        </ol>
-      </section>
+      {/* E. Questions à poser */}
+      <CopilotQuestions opportunityId={opportunity.id} questions={questions} />
 
-      {/* E. Rappel « non intrusif » et suite du parcours */}
+      {/* F. Rappel « non intrusif » et suite du parcours */}
       <section className={softCard}>
         <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <p className="flex items-start gap-3 text-sm text-[#667085]">
@@ -164,7 +141,7 @@ export default function MeetingCopilot({
               informations juste après.
             </span>
           </p>
-          <Link href={debriefHref(opportunity.id)} className={primaryButton}>
+          <Link href={r.debrief(opportunity.id)} className={primaryButton}>
             Le rendez-vous a eu lieu
             <ArrowRight size={16} />
           </Link>

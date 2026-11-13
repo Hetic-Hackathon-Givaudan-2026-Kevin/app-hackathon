@@ -21,9 +21,7 @@ import {
   type DebriefDraft,
 } from '@/lib/debrief-draft';
 import { CHECKLIST, type ChecklistItem } from '@/lib/report';
-
-const reportHref = (opportunityId: string) =>
-  `/sales/junior/appointment/report/${opportunityId}`;
+import { useRoutes } from '@/lib/use-role';
 
 const fieldClass =
   'w-full resize-y rounded-[22px] bg-white/90 p-4 text-sm text-[#172033] shadow-[0_1px_2px_rgba(23,32,51,0.05)] outline-none transition-shadow placeholder:text-slate-400 focus:shadow-[0_0_0_2px_#172033]';
@@ -57,6 +55,7 @@ function DebriefForm({
   initial,
 }: DebriefProps & { initial: DebriefDraft | null }) {
   const router = useRouter();
+  const routes = useRoutes();
   const [answers, setAnswers] = useState<string[]>(() =>
     questions.map((_, index) => initial?.answers[index] ?? ''),
   );
@@ -75,7 +74,7 @@ function DebriefForm({
 
   function generate() {
     saveDebriefDraft(opportunity.id, { answers, checked, notes });
-    router.push(reportHref(opportunity.id));
+    router.push(routes.report(opportunity.id));
   }
 
   const missingCount = CHECKLIST.length - checked.length;
