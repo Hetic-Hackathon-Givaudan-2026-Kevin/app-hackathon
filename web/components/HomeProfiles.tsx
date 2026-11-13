@@ -46,7 +46,7 @@ export default function HomeProfiles() {
                   alt=""
                   width={140}
                   height={140}
-                  
+
                   priority={index === 0}
                   className="absolute -bottom-5"
                 />
