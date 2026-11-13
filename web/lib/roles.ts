@@ -15,6 +15,13 @@ export const ROLE_PERSON: Record<Role, string> = {
   rd: 'Stéphane Ko',
 };
 
+// Photos des profils, dans web/public/
+export const ROLE_PHOTO: Record<Role, string> = {
+  junior: '/camille.avif',
+  senior: '/israel.avif',
+  rd: '/stephane.avif',
+};
+
 const BASE: Record<Role, string> = {
   junior: '/sales/junior',
   senior: '/sales/senior',

@@ -16,6 +16,7 @@ import type { BriefRow } from '@/lib/briefs';
 import { useValidatedReports } from '@/lib/reports-store';
 import { routes } from '@/lib/roles';
 import { normalize } from '@/lib/text';
+import Reveal from '@/components/ui/Reveal';
 
 const rd = routes('rd');
 const PAGE_SIZE = 6;
@@ -138,13 +139,13 @@ export default function BriefsList({
 
       {visible.length > 0 ? (
         <ul className="grid gap-3 xl:grid-cols-2">
-          {visible.map((brief) => (
-            <li key={brief.id} className="min-w-0">
+          {visible.map((brief, position) => (
+            <Reveal key={brief.id} index={position} className="min-w-0">
               <BriefCard
                 brief={brief}
                 isNew={reports[brief.opportunity.id] !== undefined}
               />
-            </li>
+            </Reveal>
           ))}
         </ul>
       ) : (

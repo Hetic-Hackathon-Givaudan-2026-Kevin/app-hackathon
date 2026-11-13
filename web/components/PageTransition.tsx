@@ -13,9 +13,9 @@ export default function PageTransition({
 
   return (
     <motion.div
-      initial={reduced ? false : { opacity: 0, y: 8 }}
+      initial={reduced ? false : { opacity: 0, y: 14 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.34, ease: [0.22, 1, 0.36, 1] }}
       className="flex w-full min-w-0 flex-1 flex-col gap-6"
     >
       {children}

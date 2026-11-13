@@ -9,6 +9,7 @@ import type { PortfolioClient } from '@/lib/portfolio';
 import { useRoutes } from '@/lib/use-role';
 import { normalize } from '@/lib/text';
 import ClientLogo from '@/components/clients/ClientLogo';
+import Reveal from '@/components/ui/Reveal';
 
 const PAGE_SIZE = 6;
 
@@ -87,8 +88,8 @@ export default function ClientsGrid({
 
       {visible.length > 0 ? (
         <ul className="grid gap-3 sm:gap-4 md:grid-cols-2 xl:grid-cols-3">
-          {visible.map((client) => (
-            <li key={client.id}>
+          {visible.map((client, position) => (
+            <Reveal key={client.id} index={position}>
               <Link
                 href={routes.client(client.id)}
                 className="group flex h-full flex-col gap-4 rounded-[28px] border border-white/80 bg-white/55 p-5 shadow-[0_18px_40px_-28px_rgba(23,32,51,0.35)] backdrop-blur-xl transition-colors duration-300 ease-out hover:bg-white/90 sm:p-6"
@@ -123,7 +124,7 @@ export default function ClientsGrid({
                   </span>
                 </div>
               </Link>
-            </li>
+            </Reveal>
           ))}
         </ul>
       ) : (
