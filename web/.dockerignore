@@ -1,0 +1,13 @@
+**/node_modules
+**/.next
+.git
+.github
+db/data
+**/.env
+**/.env.exemple
+node_modules
+.next
+.git
+.env*
+Dockerfile
+.dockerignore

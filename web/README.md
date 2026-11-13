@@ -44,3 +44,32 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+## Lancer la tranche verticale
+
+docker compose up --build
+
+Puis http://localhost:3000 — choisissez un profil : Camille (junior),
+Israel (senior) ou Stéphane (R&D).
+
+## Ce qui est simulé
+
+- **Les données** sont fictives mais cohérentes : 12 clients, 18 opportunités,
+  27 projets, 18 signaux et 11 rendez-vous, reliés entre eux et vérifiés par
+  `npm run check:data`. Aucune connexion à Pegasus, Atlas ou Salesforce.
+- **L'« IA » n'est pas un modèle de langage.** Les questions suggérées sont
+  rédigées à l'avance par opportunité ; le compte rendu est produit par des
+  règles métier (`lib/report.ts`) à partir de la checklist et des notes ; les
+  équipes concernées sont déduites du secteur et de mots-clés.
+- **La persistance est locale au navigateur.** Relectures des seniors, notes de
+  rendez-vous et comptes rendus validés sont gardés dans le navigateur, pas sur
+  un serveur. Ils ne sont donc pas partagés entre postes.
+- **Pas d'authentification.** Le changement de profil se fait par la page
+  d'accueil.
+- **Le service FastAPI de l'équipe Data n'est pas encore branché.** La couche
+  d'accès aux données (`lib/`) est le point de raccordement prévu.
+
+Ce qui n'est pas simulé : le parcours complet, les relations entre les données,
+les compteurs calculés depuis les tables, la traçabilité des signaux
+(fait / hypothèse / à confirmer) et la boucle senior → junior → R&D.
