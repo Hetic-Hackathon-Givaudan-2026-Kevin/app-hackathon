@@ -1,15 +1,11 @@
 import { Suspense } from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowRight, Building2, CalendarCheck, Sparkles } from 'lucide-react';
+import { Sparkles } from 'lucide-react';
 import BackButton from '@/components/BackButton';
+import RecommendationBlock from '@/components/opportunity/RecommendationBlock';
 import { EvidenceBadge, PriorityBadge, StatusBadge } from '@/components/Badges';
-import {
-  glowCardInk,
-  primaryButton,
-  sectionTitle,
-  softCard,
-} from '@/components/ui/Soft';
+import { glowCardInk, sectionTitle, softCard } from '@/components/ui/Soft';
 import {
   confidenceLabel,
   formatDate,
@@ -20,6 +16,7 @@ import {
   type Opportunity,
 } from '@/lib/crm';
 import { routes, type Role } from '@/lib/roles';
+import ClientLogo from '@/components/clients/ClientLogo';
 
 type PageProps = {
   params: Promise<{ opportunityId: string }>;
@@ -103,7 +100,7 @@ async function OpportunityDetailContent({ params, role }: PageProps) {
                 href={r.client(client.id)}
                 className="inline-flex items-center gap-2 text-sm font-medium text-[#172033] underline decoration-[#172033]/20 underline-offset-4 transition-colors hover:decoration-[#172033]"
               >
-                <Building2 size={16} />
+                <ClientLogo clientId={client.id} name={client.name} size="xs" />
                 {client.name}
               </Link>
             </dd>
@@ -235,17 +232,11 @@ async function OpportunityDetailContent({ params, role }: PageProps) {
 
           {/* F. Recommandation et G. Bouton principal */}
           <Card title="Recommandation">
-            <p className="text-sm text-[#667085] sm:text-base">
-              {opportunity.next_action}
-            </p>
-            <Link
-              href={r.prepare(opportunity.id)}
-              className={`${primaryButton} mt-5 w-full`}
-            >
-              <CalendarCheck size={16} />
-              Préparer mon rendez-vous
-              <ArrowRight size={16} />
-            </Link>
+            <RecommendationBlock
+              opportunityId={opportunity.id}
+              recommendation={opportunity.next_action}
+              role={role}
+            />
           </Card>
         </div>
       </div>

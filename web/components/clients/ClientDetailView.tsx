@@ -54,7 +54,7 @@ function Stat({
       className={`${softCard} flex items-center gap-4 sm:flex-col sm:items-start sm:gap-3`}
     >
       <span
-        className={`rounded-full px-3 py-1 text-xs font-medium whitespace-nowrap ${className}`}
+        className={`rounded-full px-3 py-1 text-center text-xs font-medium ${className}`}
       >
         {label}
       </span>

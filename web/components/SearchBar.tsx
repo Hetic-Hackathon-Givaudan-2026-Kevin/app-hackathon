@@ -3,10 +3,11 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Search, X, ArrowLeft, Building2 } from 'lucide-react';
+import { Search, X, ArrowLeft } from 'lucide-react';
 import clientsData from '@/data/json/clients.json';
 import { getClientStats } from '@/lib/stats';
 import { useRoutes } from '@/lib/use-role';
+import ClientLogo from '@/components/clients/ClientLogo';
 
 interface Client {
   id: string;
@@ -157,9 +158,7 @@ export default function SearchBar() {
                         className="flex flex-col gap-2 rounded-xl border border-slate-100 p-3.5 transition-colors hover:bg-slate-50"
                       >
                         <div className="flex items-center gap-3">
-                          <div className="shrink-0 rounded-full bg-slate-100 p-2.5 text-slate-600">
-                            <Building2 size={18} />
-                          </div>
+                          <ClientLogo clientId={client.id} name={client.name} />
                           <div>
                             <p className="text-base font-semibold text-slate-900">
                               {client.name}
@@ -251,9 +250,11 @@ export default function SearchBar() {
                       className="flex items-center justify-between rounded-xl p-2.5 text-left transition-colors hover:bg-slate-50"
                     >
                       <div className="flex items-center gap-3 overflow-hidden">
-                        <div className="shrink-0 rounded-full bg-slate-100 p-2 text-slate-600">
-                          <Building2 size={16} />
-                        </div>
+                        <ClientLogo
+                          clientId={client.id}
+                          name={client.name}
+                          size="sm"
+                        />
                         <div className="overflow-hidden">
                           <p className="truncate text-sm font-semibold text-slate-900">
                             {client.name}

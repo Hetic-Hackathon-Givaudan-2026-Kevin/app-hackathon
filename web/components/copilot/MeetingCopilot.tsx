@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, Building2, EyeOff } from 'lucide-react';
+import { ArrowRight, EyeOff } from 'lucide-react';
 import CopilotQuestions from '@/components/copilot/CopilotQuestions';
 import SeniorGuidance from '@/components/copilot/SeniorGuidance';
 import {
@@ -15,6 +15,7 @@ import {
 } from '@/components/ui/Soft';
 import type { CopilotContext } from '@/lib/copilot';
 import { routes, type Role } from '@/lib/roles';
+import ClientLogo from '@/components/clients/ClientLogo';
 
 const linkClass =
   'underline decoration-[#172033]/20 underline-offset-4 transition-colors hover:decoration-[#172033]';
@@ -44,7 +45,7 @@ export default function MeetingCopilot({
             href={r.client(client.id)}
             className={`inline-flex items-center gap-2 text-[#172033] ${linkClass}`}
           >
-            <Building2 size={16} />
+            <ClientLogo clientId={client.id} name={client.name} size="xs" />
             {client.name}
           </Link>
           •

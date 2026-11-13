@@ -2,13 +2,14 @@
 
 import { useRef, useState, useSyncExternalStore } from 'react';
 import Link from 'next/link';
-import { ArrowRight, Building2, Search, X } from 'lucide-react';
+import { ArrowRight, Search, X } from 'lucide-react';
 import ClientPills from '@/components/clients/ClientPills';
 import Pagination from '@/components/ui/Pagination';
 import { DotNumber, glowCard, softCard } from '@/components/ui/Soft';
 import type { Portfolio } from '@/lib/portfolio';
 import { useRoutes } from '@/lib/use-role';
 import { normalize } from '@/lib/text';
+import ClientLogo from '@/components/clients/ClientLogo';
 
 const PAGE_SIZE = 6;
 
@@ -194,9 +195,7 @@ export default function PortfolioView({ clients, kpis }: Portfolio) {
                   className="group flex flex-col gap-3 rounded-[22px] bg-white/90 p-4 shadow-[0_1px_2px_rgba(23,32,51,0.05)] transition-colors duration-300 ease-out hover:bg-white sm:p-5 lg:flex-row lg:items-center lg:gap-6"
                 >
                   <div className="flex min-w-0 items-center gap-3 lg:w-[30%]">
-                    <div className="shrink-0 rounded-2xl bg-[#F3F4F6] p-2.5 text-slate-600">
-                      <Building2 size={20} />
-                    </div>
+                    <ClientLogo clientId={client.id} name={client.name} />
                     <div className="min-w-0">
                       <p className="truncate font-semibold text-[#172033]">
                         {client.name}

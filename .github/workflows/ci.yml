@@ -10,6 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     # Même Node et même Debian que le dev container
     container: node:24-trixie
+    # ↓↓↓ LES 3 LIGNES À AJOUTER ↓↓↓
+    defaults:
+      run:
+        working-directory: web
+    # ↑↑↑ FIN DE L'AJOUT ↑↑↑
     steps:
       - uses: actions/checkout@v7
       - run: npm ci
