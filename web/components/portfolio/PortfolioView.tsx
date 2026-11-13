@@ -10,6 +10,7 @@ import type { Portfolio } from '@/lib/portfolio';
 import { useRoutes } from '@/lib/use-role';
 import { normalize } from '@/lib/text';
 import ClientLogo from '@/components/clients/ClientLogo';
+import Reveal from '@/components/ui/Reveal';
 
 const PAGE_SIZE = 6;
 
@@ -188,8 +189,8 @@ export default function PortfolioView({ clients, kpis }: Portfolio) {
 
         {visible.length > 0 ? (
           <ul className="flex flex-col gap-3">
-            {visible.map((client) => (
-              <li key={client.id}>
+            {visible.map((client, position) => (
+              <Reveal key={client.id} index={position}>
                 <Link
                   href={routes.client(client.id)}
                   className="group flex flex-col gap-3 rounded-[22px] bg-white/90 p-4 shadow-[0_1px_2px_rgba(23,32,51,0.05)] transition-colors duration-300 ease-out hover:bg-white sm:p-5 lg:flex-row lg:items-center lg:gap-6"
@@ -221,7 +222,7 @@ export default function PortfolioView({ clients, kpis }: Portfolio) {
                     />
                   </div>
                 </Link>
-              </li>
+              </Reveal>
             ))}
           </ul>
         ) : (

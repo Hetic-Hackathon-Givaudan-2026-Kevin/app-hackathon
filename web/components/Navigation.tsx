@@ -1,10 +1,11 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { LogOut } from 'lucide-react';
 import NotificationBell from '@/components/NotificationBell';
 import type { NotificationContext } from '@/lib/notifications';
-import { ROLE_LABEL, ROLE_PERSON, type Role } from '@/lib/roles';
+import { ROLE_LABEL, ROLE_PERSON, ROLE_PHOTO, type Role } from '@/lib/roles';
 import SearchBar from './SearchBar';
 
 export default function Navigation({
@@ -23,9 +24,13 @@ export default function Navigation({
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 p-4 lg:p-3.5">
         {/* Profil connecté */}
         <div className="flex min-w-0 items-center gap-3">
-          <span
-            aria-hidden="true"
-            className="size-9 shrink-0 rounded-full bg-[#172033]"
+          <Image
+            src={ROLE_PHOTO[role]}
+            alt=""
+            width={72}
+            height={72}
+            priority
+            className="size-9 shrink-0 rounded-full bg-white object-cover"
           />
           <span className="min-w-0 leading-tight">
             <span className="block truncate text-sm font-medium text-[#172033]">

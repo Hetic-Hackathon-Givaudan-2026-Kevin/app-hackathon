@@ -11,16 +11,18 @@ import { routes } from '@/lib/roles';
 import type { ReviewItem } from '@/lib/senior';
 import { normalize } from '@/lib/text';
 import ClientLogo from '@/components/clients/ClientLogo';
+import Reveal from '@/components/ui/Reveal';
 
 const senior = routes('senior');
 
 const PAGE_SIZE = 6;
 
-type Filter = 'a_relire' | 'relues' | 'toutes';
+type Filter = 'a_relire' | 'relues' | 'auto' | 'toutes';
 
 const FILTERS: { value: Filter; label: string }[] = [
   { value: 'a_relire', label: 'À relire' },
   { value: 'relues', label: 'Relues' },
+  { value: 'auto', label: 'Publiées d’office' },
   { value: 'toutes', label: 'Toutes' },
 ];
 
@@ -44,12 +46,17 @@ export default function ReviewQueue({
   const listRef = useRef<HTMLElement>(null);
 
   const reviewedCount = items.filter((item) => reviews[item.id]).length;
+  const toReview = items.filter(
+    (item) => item.need === 'a_relire' && !reviews[item.id],
+  ).length;
 
   const search = normalize(query.trim());
   const filtered = items
     .filter((item) => {
-      if (filter === 'a_relire') return !reviews[item.id];
+      if (filter === 'a_relire')
+        return item.need === 'a_relire' && !reviews[item.id];
       if (filter === 'relues') return Boolean(reviews[item.id]);
+      if (filter === 'auto') return item.need === 'auto' && !reviews[item.id];
       return true;
     })
     .filter(
@@ -86,7 +93,8 @@ export default function ReviewQueue({
           {title}
         </h2>
         <p aria-live="polite" className="text-sm text-[#667085]">
-          {reviewedCount} relue{reviewedCount > 1 ? 's' : ''} sur {items.length}
+          {toReview} en attente de votre avis • {reviewedCount} relue
+          {reviewedCount > 1 ? 's' : ''}
         </p>
       </div>
 
@@ -150,10 +158,10 @@ export default function ReviewQueue({
 
       {visible.length > 0 ? (
         <ul className="flex flex-col gap-3">
-          {visible.map((item) => {
+          {visible.map((item, position) => {
             const review = reviews[item.id];
             return (
-              <li key={item.id} className="min-w-0">
+              <Reveal key={item.id} index={position} className="min-w-0">
                 <Link
                   href={senior.reviewItem(item.id)}
                   className="group flex flex-col gap-3 rounded-[22px] bg-white/90 p-4 shadow-[0_1px_2px_rgba(23,32,51,0.05)] transition-colors duration-300 ease-out hover:bg-white sm:p-5 lg:flex-row lg:items-center lg:gap-6"
@@ -190,6 +198,13 @@ export default function ReviewQueue({
                           <BadgeCheck size={14} />
                           {VERDICT_LABEL[review.verdict]}
                         </span>
+                      ) : item.need === 'auto' ? (
+                        <span
+                          title={item.needReason}
+                          className="rounded-full bg-[#E6F03C] px-2.5 py-0.5 text-xs font-medium whitespace-nowrap text-[#172033]"
+                        >
+                          Publiée d’office
+                        </span>
                       ) : (
                         <>
                           <StatusBadge status={item.status} />
@@ -203,14 +218,14 @@ export default function ReviewQueue({
                     />
                   </div>
                 </Link>
-              </li>
+              </Reveal>
             );
           })}
         </ul>
       ) : (
         <p className="rounded-2xl bg-[#F6F7F9] p-6 text-center text-sm text-[#667085]">
           {filter === 'a_relire' && search === ''
-            ? 'Toutes les recommandations ont été relues.'
+            ? 'Rien n’attend votre avis : les recommandations restantes sont appuyées sur des faits documentés.'
             : 'Aucune recommandation ne correspond à cette recherche.'}
         </p>
       )}

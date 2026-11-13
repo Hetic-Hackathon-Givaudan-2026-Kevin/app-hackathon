@@ -250,6 +250,9 @@ function ReviewEditor({
               Chaque élément porte sa source et son statut : un fait est tracé
               dans une source, une hypothèse reste à vérifier.
             </p>
+            <p className="mt-3 inline-flex items-center gap-2 rounded-full bg-[#E6F03C] px-3 py-1 text-xs font-medium text-[#172033]">
+              Soumise à votre avis : {context.needReason.toLowerCase()}
+            </p>
             <ul className="mt-4 flex flex-col gap-3">
               {signals.map((signal) => (
                 <li

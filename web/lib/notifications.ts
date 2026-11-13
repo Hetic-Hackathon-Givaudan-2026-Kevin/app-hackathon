@@ -20,7 +20,10 @@ export interface Notification {
 
 // Ce que le serveur fournit pour nommer les notifications
 export interface NotificationContext {
-  opportunities: Record<string, { title: string; clientName: string }>;
+  opportunities: Record<
+    string,
+    { title: string; clientName: string; needsReview?: boolean }
+  >;
   briefByOpportunity: Record<string, string>; // opportunité → rendez-vous
 }
 
@@ -136,8 +139,8 @@ export function useNotifications(
     }
 
     // Rappel groupé : ce qui attend encore une relecture
-    const pending = Object.keys(context.opportunities).filter(
-      (id) => !reviews[id],
+    const pending = Object.entries(context.opportunities).filter(
+      ([id, item]) => item.needsReview && !reviews[id],
     ).length;
     if (pending > 0) {
       items.push({

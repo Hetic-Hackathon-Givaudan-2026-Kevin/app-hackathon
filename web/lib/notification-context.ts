@@ -1,6 +1,7 @@
 import clientsData from '@/data/json/clients.json';
 import opportunitiesData from '@/data/json/opportunities.json';
 import { getBriefs } from '@/lib/briefs';
+import { getSeniorDashboard } from '@/lib/senior';
 import type { Client, Opportunity } from '@/lib/crm';
 import type { NotificationContext } from '@/lib/notifications';
 
@@ -11,6 +12,12 @@ export function getNotificationContext(): NotificationContext {
   const opportunities = opportunitiesData as Opportunity[];
 
   const names = new Map(clients.map((client) => [client.id, client.name]));
+  const needs = new Map(
+    getSeniorDashboard().toReview.map((item) => [
+      item.id,
+      item.need === 'a_relire',
+    ]),
+  );
 
   return {
     opportunities: Object.fromEntries(
@@ -19,6 +26,7 @@ export function getNotificationContext(): NotificationContext {
         {
           title: opportunity.title,
           clientName: names.get(opportunity.client_id) ?? '',
+          needsReview: needs.get(opportunity.id) ?? false,
         },
       ]),
     ),

@@ -60,6 +60,16 @@ export function useValidatedReports(): ValidatedReports {
   return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 }
 
+export function resetValidatedReports(): void {
+  cache = EMPTY;
+  try {
+    window.localStorage.removeItem(KEY);
+  } catch {
+    // stockage indisponible : rien à effacer
+  }
+  listeners.forEach((listener) => listener());
+}
+
 export function saveValidatedReport(
   report: Omit<ValidatedReport, 'validated_at'>,
 ): void {

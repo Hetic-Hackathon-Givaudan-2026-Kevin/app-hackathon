@@ -11,8 +11,9 @@ export default function ReviewListPage() {
           Relecture des recommandations
         </h1>
         <p className="mt-1 text-sm text-[#667085] sm:text-base">
-          Chaque opportunité non confirmée attend votre avis : validez, corrigez
-          ou écartez ce que l&apos;IA propose aux commerciaux juniors.
+          Vous n&apos;arbitrez que ce qui le mérite : une recommandation appuyée
+          sur un fait documenté part directement chez le junior, une hypothèse
+          passe par vous.
         </p>
       </section>
 
@@ -20,7 +21,7 @@ export default function ReviewListPage() {
         items={toReview}
         title="File de relecture"
         showFilter
-        note="Les plus prioritaires d'abord. Une recommandation relue garde votre verdict et vos questions."
+        note="Les plus prioritaires d'abord. Chaque relecture garde votre verdict, vos questions et votre conseil."
       />
     </div>
   );

@@ -99,7 +99,9 @@ export default function SeniorDashboardView({
   kpis,
 }: SeniorDashboard) {
   const reviews = useReviews();
-  const remaining = toReview.filter((item) => !reviews[item.id]).length;
+  const remaining = toReview.filter(
+    (item) => item.need === 'a_relire' && !reviews[item.id],
+  ).length;
 
   return (
     <div className="flex flex-col gap-4 sm:gap-5">
@@ -126,8 +128,8 @@ export default function SeniorDashboardView({
           className="bg-slate-100 text-[#667085]"
         />
         <Kpi
-          label="Opportunités suivies"
-          value={kpis.opportunities}
+          label="Publiées sans relecture"
+          value={kpis.autoPublished}
           className="bg-[#EFE9FC] text-[#6542C2]"
         />
         <Kpi
@@ -146,7 +148,7 @@ export default function SeniorDashboardView({
 
       <ReviewQueue
         items={toReview}
-        note="Ces suggestions viennent de l'IA. Votre relecture confirme ou corrige ce qui sera proposé aux juniors."
+        note="Une recommandation appuyée sur un fait documenté part directement chez le junior. Vous n’arbitrez que les hypothèses et les signaux peu fiables."
       />
 
       {/* Raccourcis */}
