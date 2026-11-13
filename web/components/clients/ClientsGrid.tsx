@@ -2,12 +2,13 @@
 
 import { useRef, useState } from 'react';
 import Link from 'next/link';
-import { ArrowRight, Building2, Search, X } from 'lucide-react';
+import { ArrowRight, Search, X } from 'lucide-react';
 import ClientPills from '@/components/clients/ClientPills';
 import Pagination from '@/components/ui/Pagination';
 import type { PortfolioClient } from '@/lib/portfolio';
 import { useRoutes } from '@/lib/use-role';
 import { normalize } from '@/lib/text';
+import ClientLogo from '@/components/clients/ClientLogo';
 
 const PAGE_SIZE = 6;
 
@@ -93,9 +94,7 @@ export default function ClientsGrid({
                 className="group flex h-full flex-col gap-4 rounded-[28px] border border-white/80 bg-white/55 p-5 shadow-[0_18px_40px_-28px_rgba(23,32,51,0.35)] backdrop-blur-xl transition-colors duration-300 ease-out hover:bg-white/90 sm:p-6"
               >
                 <div className="flex items-start gap-3">
-                  <div className="shrink-0 rounded-2xl bg-[#F6F7F9] p-2.5 text-slate-600 transition-colors group-hover:bg-white">
-                    <Building2 size={20} />
-                  </div>
+                  <ClientLogo clientId={client.id} name={client.name} />
                   <div className="min-w-0 flex-1">
                     <p className="truncate text-lg font-semibold tracking-tight text-[#172033]">
                       {client.name}

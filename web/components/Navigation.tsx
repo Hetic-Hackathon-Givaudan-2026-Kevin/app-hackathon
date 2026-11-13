@@ -1,80 +1,56 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
-import { commonFeatures } from '@/data/data'; // Sans l'extension .js en TS (ajuste le chemin si besoin)
-import { useRole } from '@/lib/use-role';
+import { LogOut } from 'lucide-react';
+import NotificationBell from '@/components/NotificationBell';
+import type { NotificationContext } from '@/lib/notifications';
+import { ROLE_LABEL, ROLE_PERSON, type Role } from '@/lib/roles';
 import SearchBar from './SearchBar';
 
-// Définition du type correspondant à tes objets dans data.js
-interface FeatureItem {
-  id: string;
-  name: string;
-  pageName: string;
-  route: string;
-  description: string;
-}
-
-export default function Navigation() {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-  const role = useRole();
-
+export default function Navigation({
+  role,
+  notificationContext,
+}: {
+  role: Role;
+  notificationContext: NotificationContext;
+}) {
   // La recherche porte sur le portefeuille clients : elle n'a pas de sens
   // dans l'espace Recherche & Développement, qui ne suit pas de comptes.
   const showSearch = role !== 'rd';
 
-  const toggleMenu = (): void => setIsOpen((prev) => !prev);
-  const closeMenu = (): void => setIsOpen(false);
-
   return (
     <header className="w-full">
-      <div className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:p-3.5">
-        {/* Section Gauche : Bouton Menu (mobile) + Logo */}
-        <div className="flex items-center gap-3">
-          <button
-            type="button"
-            onClick={toggleMenu}
-            aria-expanded={isOpen}
-            aria-label="Ouvrir le menu de navigation"
-            className="rounded-full bg-white p-1.5 shadow-sm transition-colors hover:bg-slate-100 lg:hidden"
-          >
-            {isOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
-          <span className="font-bold tracking-wide">GIVAUDAN</span>
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 p-4 lg:p-3.5">
+        {/* Profil connecté */}
+        <div className="flex min-w-0 items-center gap-3">
+          <span
+            aria-hidden="true"
+            className="size-9 shrink-0 rounded-full bg-[#172033]"
+          />
+          <span className="min-w-0 leading-tight">
+            <span className="block truncate text-sm font-medium text-[#172033]">
+              {ROLE_PERSON[role]}
+            </span>
+            <span className="block truncate text-xs text-[#667085]">
+              {ROLE_LABEL[role]}
+            </span>
+          </span>
         </div>
 
         {showSearch && <SearchBar />}
 
-        {/* Section Droite : Bouton Déconnexion (desktop) */}
-        <Link href="/">
-          <button
-            type="button"
-            className="bg-foreground rounded-full p-1.5 px-3 text-sm font-medium text-white transition-opacity hover:opacity-90 max-lg:hidden"
+        <div className="flex shrink-0 items-center gap-2">
+          <NotificationBell role={role} context={notificationContext} />
+          <Link
+            href="/"
+            aria-label="Changer de profil"
+            className="bg-foreground flex items-center gap-2 rounded-full p-2 text-sm font-medium text-white transition-opacity hover:opacity-90 lg:px-3"
           >
-            Déconnexion
-          </button>
-        </Link>
+            <LogOut size={16} strokeWidth={1.6} />
+            <span className="max-lg:hidden">Déconnexion</span>
+          </Link>
+        </div>
       </div>
-
-      {/* Menu mobile déroulant */}
-      {isOpen && (
-        <nav className="mx-4 mb-4 rounded-2xl border border-slate-100 bg-white p-4 shadow-lg lg:hidden">
-          <ul className="flex flex-col gap-2">
-            {(commonFeatures as FeatureItem[]).map((item) => (
-              <li key={item.id}>
-                <a
-                  href={item.route}
-                  onClick={closeMenu}
-                  className="block rounded-lg p-2 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50 hover:text-black"
-                >
-                  {item.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      )}
     </header>
   );
 }
