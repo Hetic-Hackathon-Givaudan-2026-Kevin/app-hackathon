@@ -15,13 +15,9 @@ import {
   Stat,
 } from '@/components/ui/Soft';
 import { getMeetings, type MeetingRow } from '@/lib/meetings';
+import { routes } from '@/lib/roles';
 
-const prepareHref = (opportunityId: string) =>
-  `/sales/junior/appointment/prepare/${opportunityId}`;
-const debriefHref = (opportunityId: string) =>
-  `/sales/junior/appointment/debrief/${opportunityId}`;
-const opportunityHref = (opportunityId: string) =>
-  `/sales/junior/opportunites/${opportunityId}`;
+const r = routes('junior');
 
 function DateTile({ meeting }: { meeting: MeetingRow }) {
   return (
@@ -43,7 +39,7 @@ function MeetingHeading({ meeting }: { meeting: MeetingRow }) {
         <StatusBadge status={meeting.opportunity.status} />
       </div>
       <Link
-        href={opportunityHref(meeting.opportunity.id)}
+        href={r.opportunity(meeting.opportunity.id)}
         className="text-sm text-[#172033] underline decoration-[#172033]/20 underline-offset-4 transition-colors hover:decoration-[#172033]"
       >
         {meeting.opportunity.title}
@@ -97,7 +93,7 @@ export default function AppointmentPage() {
             <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
               <p className="text-sm text-[#172033]">{next.opportunity.title}</p>
               <Link
-                href={prepareHref(next.opportunity.id)}
+                href={r.prepare(next.opportunity.id)}
                 className={ghostButton}
               >
                 Préparer
@@ -146,13 +142,13 @@ export default function AppointmentPage() {
                 {meeting.hasCopilot && (
                   <div className="flex shrink-0 flex-col gap-2 sm:flex-row">
                     <Link
-                      href={debriefHref(meeting.opportunity.id)}
+                      href={r.debrief(meeting.opportunity.id)}
                       className={mutedButton}
                     >
                       Compléter après le RDV
                     </Link>
                     <Link
-                      href={prepareHref(meeting.opportunity.id)}
+                      href={r.prepare(meeting.opportunity.id)}
                       className={primaryButton}
                     >
                       Préparer

@@ -79,8 +79,10 @@ export function Stat({
   highlight?: boolean;
 }) {
   return (
-    <div className="flex items-start gap-2">
-      <DotNumber className="text-3xl sm:text-4xl">{value}</DotNumber>
+    <div className="flex items-start gap-1">
+      <DotNumber className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl tracking-tight">
+        {value}
+      </DotNumber>
       {highlight ? <LimeTag>{label}</LimeTag> : <SoftTag>{label}</SoftTag>}
     </div>
   );

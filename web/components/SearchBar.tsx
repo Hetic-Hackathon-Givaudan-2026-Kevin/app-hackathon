@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { Search, X, ArrowLeft, Building2 } from 'lucide-react';
 import clientsData from '@/data/json/clients.json';
 import { getClientStats } from '@/lib/stats';
+import { useRoutes } from '@/lib/use-role';
 
 interface Client {
   id: string;
@@ -29,6 +30,7 @@ function normalize(text: string): string {
 }
 
 export default function SearchBar() {
+  const routes = useRoutes();
   const [query, setQuery] = useState<string>('');
   const [debouncedQuery, setDebouncedQuery] = useState<string>('');
   const [isDesktopOpen, setIsDesktopOpen] = useState<boolean>(false);
@@ -147,7 +149,7 @@ export default function SearchBar() {
                   {results.map((client) => (
                     <li key={client.id}>
                       <Link
-                        href={`/sales/clients/${client.id}`}
+                        href={routes.client(client.id)}
                         onClick={() => {
                           setIsMobileOpen(false);
                           setQuery('');
@@ -212,7 +214,7 @@ export default function SearchBar() {
             onKeyDown={(e) => {
               if (e.key === 'Escape') setIsDesktopOpen(false);
               if (e.key === 'Enter' && !isLoading && results[0]) {
-                router.push(`/sales/clients/${results[0].id}`);
+                router.push(routes.client(results[0].id));
                 setIsDesktopOpen(false);
                 setQuery('');
               }
@@ -244,7 +246,7 @@ export default function SearchBar() {
                 {results.map((client) => (
                   <li key={client.id}>
                     <Link
-                      href={`/sales/clients/${client.id}`}
+                      href={routes.client(client.id)}
                       onClick={() => setIsDesktopOpen(false)}
                       className="flex items-center justify-between rounded-xl p-2.5 text-left transition-colors hover:bg-slate-50"
                     >

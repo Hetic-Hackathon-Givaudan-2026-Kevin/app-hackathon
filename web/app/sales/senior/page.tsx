@@ -1,3 +1,8 @@
+import SeniorDashboardView from '@/components/portfolio/SeniorDashboardView';
+import { getSeniorDashboard } from '@/lib/senior';
+
 export default function IndexSenior() {
-  return <div></div>;
+  const { toReview, kpis } = getSeniorDashboard();
+
+  return <SeniorDashboardView toReview={toReview} kpis={kpis} />;
 }

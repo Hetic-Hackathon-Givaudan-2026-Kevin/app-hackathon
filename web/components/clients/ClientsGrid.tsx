@@ -6,6 +6,7 @@ import { ArrowRight, Building2, Search, X } from 'lucide-react';
 import ClientPills from '@/components/clients/ClientPills';
 import Pagination from '@/components/ui/Pagination';
 import type { PortfolioClient } from '@/lib/portfolio';
+import { useRoutes } from '@/lib/use-role';
 import { normalize } from '@/lib/text';
 
 const PAGE_SIZE = 6;
@@ -15,6 +16,7 @@ export default function ClientsGrid({
 }: {
   clients: PortfolioClient[];
 }) {
+  const routes = useRoutes();
   const [query, setQuery] = useState('');
   const [page, setPage] = useState(1);
   const topRef = useRef<HTMLElement>(null);
@@ -87,7 +89,7 @@ export default function ClientsGrid({
           {visible.map((client) => (
             <li key={client.id}>
               <Link
-                href={`/sales/junior/clients/${client.id}`}
+                href={routes.client(client.id)}
                 className="group flex h-full flex-col gap-4 rounded-[28px] border border-white/80 bg-white/55 p-5 shadow-[0_18px_40px_-28px_rgba(23,32,51,0.35)] backdrop-blur-xl transition-colors duration-300 ease-out hover:bg-white/90 sm:p-6"
               >
                 <div className="flex items-start gap-3">

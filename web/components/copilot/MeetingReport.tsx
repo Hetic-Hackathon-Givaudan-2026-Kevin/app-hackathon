@@ -18,12 +18,11 @@ import {
 } from '@/components/ui/Soft';
 import type { CopilotContext } from '@/lib/copilot';
 import { useDebriefDraft, type DebriefDraft } from '@/lib/debrief-draft';
+import { saveValidatedReport } from '@/lib/reports-store';
 import { downloadReportPdf } from '@/lib/pdf';
 import type { Practice } from '@/lib/practices';
 import { buildReport, CHECKLIST, type ReportSection } from '@/lib/report';
-
-const debriefHref = (opportunityId: string) =>
-  `/sales/junior/appointment/debrief/${opportunityId}`;
+import { useRoutes } from '@/lib/use-role';
 
 type ReportProps = Pick<
   CopilotContext,
@@ -32,6 +31,7 @@ type ReportProps = Pick<
 
 // Écran du compte rendu : brouillon en 7 parties, modifiable puis validé.
 export default function MeetingReport(props: ReportProps) {
+  const routes = useRoutes();
   const draft = useDebriefDraft(props.opportunity.id);
 
   if (draft === undefined) {
@@ -53,7 +53,7 @@ export default function MeetingReport(props: ReportProps) {
           Commencez par les renseigner.
         </p>
         <Link
-          href={debriefHref(props.opportunity.id)}
+          href={routes.debrief(props.opportunity.id)}
           className={`${primaryButton} mt-5 w-fit`}
         >
           Renseigner mes notes
@@ -140,7 +140,16 @@ function ReportEditor({
           </button>
           <button
             type="button"
-            onClick={() => setIsValidated(true)}
+            onClick={() => {
+              setIsValidated(true);
+              // Le brief part vers l'espace Recherche & Développement
+              saveValidatedReport({
+                opportunity_id: opportunity.id,
+                client_name: client.name,
+                opportunity_title: opportunity.title,
+                sections,
+              });
+            }}
             disabled={isValidated}
             className={isValidated ? doneButton : primaryButton}
           >
